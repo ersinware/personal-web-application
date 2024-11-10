@@ -1,0 +1,55 @@
+.j-i-c {
+    justify-items: center;
+}
+
+.j-c-c {
+    justify-content: center;
+}
+
+.j-c-s-b {
+    justify-content: space-between;
+}
+
+.j-c-r {
+    justify-content: right;
+}
+
+.j-c-s-e {
+    justify-content: space-evenly;
+}
+
+.j-c-s-a {
+    justify-content: space-around;
+}
+
+.a-i-c {
+    align-items: center;
+}
+
+.a-i-e {
+    align-items: end;
+}
+
+.a-i-s {
+    align-items: start;
+}
+
+@media (min-width: 65.001em) {
+    .big-screen-j-c-c {
+        justify-content: center;
+    }
+
+    .big-screen-j-c-s-b {
+        justify-content: space-between;
+    }
+
+    .big-screen-a-i-c {
+        align-items: center;
+    }
+}
+
+@media (max-width: 65em) {
+    .small-screen-j-c-c {
+        justify-content: center;
+    }
+}

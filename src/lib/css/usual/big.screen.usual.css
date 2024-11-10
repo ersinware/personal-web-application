@@ -1,0 +1,9 @@
+@media (min-width: 65.001em) {
+    .for-small-screen {
+        display: none !important;
+    }
+
+    .big-screen-o-y-scroll {
+        overflow-y: scroll;
+    }
+}

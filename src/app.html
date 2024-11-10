@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" href="%sveltekit.assets%/favicon.png"/>
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Montserrat-Bold.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Montserrat-ExtraBold.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Montserrat-Black.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Poppins-Regular.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Poppins-Medium.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Poppins-SemiBold.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Poppins-Bold.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Poppins-ExtraBold.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    <link rel="preload"
+          href="%sveltekit.assets%/fonts/Poppins-Black.woff2"
+          fetchpriority="high"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous">
+
+    %sveltekit.head%
+
+    <script nonce="%sveltekit.nonce%">
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+        window.addEventListener('resize', () => document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`))
+    </script>
+</head>
+
+<body data-sveltekit-preload-data="hover">
+
+<div style="display: contents">%sveltekit.body%</div>
+
+</body>
+</html>

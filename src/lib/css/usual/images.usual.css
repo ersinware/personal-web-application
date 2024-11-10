@@ -1,0 +1,16 @@
+img {
+    object-position: center;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    color: transparent !important;
+    background-color: transparent !important;
+}

@@ -1,0 +1,116 @@
+.h-1,
+.h-2,
+.h-3,
+.h-4,
+.h-5,
+.h-6 {
+    color: var(--color-title);
+
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+}
+
+.h-1 {
+    line-height: 3rem;
+    font-size: 2.5rem;
+}
+
+.h-2 {
+    line-height: 2.75rem;
+    font-size: 2.125rem;
+}
+
+.h-3 {
+    line-height: 2.25rem;
+    font-size: 1.75rem;
+}
+
+.h-4 {
+    line-height: 2rem;
+    font-size: 1.375rem;
+}
+
+.text-0,
+.text-1,
+.text-2,
+.text-3,
+.text-4,
+.text-5,
+.text-6 {
+    font-family: Poppins, sans-serif;
+    color: var(--color-text);
+}
+
+.text-0 {
+    font-size: .9rem;
+}
+
+.text-1 {
+    font-size: .85rem;
+}
+
+.text-2 {
+    font-size: .825rem;
+}
+
+.text-3 {
+    font-size: .8rem;
+}
+
+.text-4 {
+    font-size: .775rem;
+}
+
+.text-5 {
+    font-size: .75rem;
+}
+
+.text-6 {
+    font-size: .725rem;
+}
+
+.text-link {
+    font-family: Poppins, sans-serif;
+    color: var(--color-link);
+}
+
+.text-link-disabled {
+    color: var(--color-button-disabled);
+}
+
+.text-hint-1,
+.text-hint-2,
+.text-hint-3 {
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+}
+
+.text-hint-1 {
+    line-height: 1.125rem;
+
+    font-size: .7rem;
+    letter-spacing: .1rem;
+}
+
+.text-hint-2 {
+    line-height: .9rem;
+
+    font-size: .65rem;
+    letter-spacing: .0875rem;
+}
+
+.text-hint-3 {
+    line-height: .75rem;
+    font-size: .625rem;
+    letter-spacing: .075rem;
+}
+
+@media (hover: hover) {
+    .text-link {
+        transition: color 0.25s ease-in-out;
+    }
+
+    .text-link:hover {
+        color: var(--color-link-darker);
+    }
+}

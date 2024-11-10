@@ -1,0 +1,45 @@
+.p-r {
+    position: relative;
+}
+
+.p-f {
+    position: fixed;
+    z-index: var(--z-index-one);
+}
+
+.p-a {
+    position: absolute;
+    z-index: var(--z-index-one);
+}
+
+.p-c {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.p-c-v {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.p-c-h {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.l-0 {
+    left: 0;
+}
+
+.t-0 {
+    top: 0;
+}
+
+.b-0 {
+    bottom: 0;
+}
+
+.r-0 {
+    right: 0;
+}

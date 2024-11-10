@@ -1,0 +1,119 @@
+@font-face {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-display: swap;
+
+    src: url(/fonts/Montserrat-Bold.woff2);
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: 800;
+    font-display: swap;
+
+    src: url(/fonts/Montserrat-ExtraBold.woff2);
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: 900;
+    font-display: swap;
+
+    src: url(/fonts/Montserrat-Black.woff2);
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 400;
+    font-display: swap;
+
+    src: url(/fonts/Poppins-Regular.woff2);
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 500;
+    font-display: swap;
+
+    src: url(/fonts/Poppins-Medium.woff2);
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 600;
+    font-display: swap;
+
+    src: url(/fonts/Poppins-SemiBold.woff2);
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 700;
+    font-display: swap;
+
+    src: url(/fonts/Poppins-Bold.woff2);
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 800;
+    font-display: swap;
+
+    src: url(/fonts/Poppins-ExtraBold.woff2);
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 900;
+    font-display: swap;
+
+    src: url(/fonts/Poppins-Black.woff2);
+}
+
+@font-face {
+    font-family: Geist;
+    font-weight: 400;
+    font-display: swap;
+
+    src: url(/fonts/Geist-Regular.ttf);
+}
+
+@font-face {
+    font-family: Geist;
+    font-weight: 500;
+    font-display: swap;
+
+    src: url(/fonts/Geist-Medium.ttf);
+}
+
+@font-face {
+    font-family: Geist;
+    font-weight: 600;
+    font-display: swap;
+
+    src: url(/fonts/Geist-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Geist;
+    font-weight: 700;
+    font-display: swap;
+
+    src: url(/fonts/Geist-Bold.ttf);
+}
+
+@font-face {
+    font-family: Geist;
+    font-weight: 800;
+    font-display: swap;
+
+    src: url(/fonts/Geist-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: Geist;
+    font-weight: 900;
+    font-display: swap;
+
+    src: url(/fonts/Geist-Black.ttf);
+}

@@ -1,0 +1,3 @@
+export const DURATION_PROGRESS_BAR_NAVIGATED = 750
+
+export const DURATION_RIPPLE = 300

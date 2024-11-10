@@ -1,0 +1,61 @@
+.g-v-d {
+    gap: var(--p-v);
+}
+
+.g-h-d {
+    gap: var(--p-h);
+}
+
+.gap-page {
+    gap: var(--p-v-page);
+}
+
+.g-dot25 {
+    gap: .25rem;
+}
+
+.g-dot5 {
+    gap: .5rem;
+}
+
+.g-dot75 {
+    gap: .75rem;
+}
+
+.g-1 {
+    gap: 1rem;
+}
+
+.g-1dot25 {
+    gap: 1.25rem;
+}
+
+.g-1dot5 {
+    gap: 1.5rem;
+}
+
+.g-1dot75 {
+    gap: 1.75rem;
+}
+
+.g-2 {
+    gap: 2rem;
+}
+
+.g-2dot5 {
+    gap: 2.5rem;
+}
+
+.g-3 {
+    gap: 3rem;
+}
+
+.g-4 {
+    gap: 4rem;
+}
+
+@media (max-width: 65em) {
+    .small-screen-g-v-d {
+        gap: var(--p-v);
+    }
+}

@@ -1,0 +1,9 @@
+@media (max-width: 65em) {
+    :root {
+        font-size: 14px;
+    }
+
+    .for-big-screen {
+        display: none !important;
+    }
+}

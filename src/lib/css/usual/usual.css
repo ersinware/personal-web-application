@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus,
+button:focus,
+[contenteditable]:focus {
+    outline: none;
+}
+
+/* ****************************************************************************************************************** */
+
+:root, html, body {
+    background-color: var(--color-background);
+}
+
+body {
+    --max-w: 85rem;
+    --max-w-page: 77.715rem;
+    --max-w-page-small: 65rem;
+    --max-w-phone: 30.714285714rem;
+
+    /* vh is defined in app.html */
+    --vh-actual: calc(var(--vh, 100vh));
+
+    --border-radius: 1.5rem;
+
+    --z-index-one: 1;
+    --z-index-two: 2;
+    --z-index-three: 3;
+    --z-index-four: 4;
+}
+
+.p-none {
+    pointer-events: none;
+}
+
+.b-box {
+    box-sizing: border-box;
+}
+
+.b-r-d {
+    border-radius: var(--border-radius);
+}
+
+.b-r-c {
+    border-radius: 50%;
+}
+
+.o-hidden {
+    overflow: hidden;
+}
+
+.o-x-hidden {
+    overflow-x: hidden;
+}
+
+.o-y-hidden {
+    overflow-y: hidden;
+}
+
+.o-y-scroll {
+    overflow-y: scroll;
+}
+
+.o-y-visible {
+    overflow: visible;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.v-divider {
+    width: .1px;
+    background-color: var(--color-divider);
+}
+
+.h-divider {
+    height: .1px;
+    background-color: var(--color-divider);
+}
+
+.close-lamp {
+    pointer-events: revert;
+    opacity: 1;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.b-shadow {
+    box-shadow: 0 0 .1rem var(--color-divider);
+}
+
+@media (hover: hover) {
+    .pointer {
+        cursor: pointer;
+    }
+}
