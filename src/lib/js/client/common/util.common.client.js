@@ -4,8 +4,9 @@ import {waitFor} from "$lib/js/common/util.common.js";
 import {DURATION_RIPPLE} from "$lib/js/client/common/constant.transition.common.client.js";
 import {browser} from "$app/environment";
 
-if (browser)
+export function init() {
     initZeroTimeout()
+}
 
 function initZeroTimeout() {
     const timeouts = [],
@@ -31,31 +32,34 @@ function initZeroTimeout() {
 }
 
 export async function onLinkClick(event) {
-    event.preventDefault()
-
     const href = event.currentTarget.href
+
+    event.preventDefault()
 
     await performRippleEffectAndWait(event)
     goto(href)
 }
 
 export async function onLinkClickOnNewTab(event) {
-    event.preventDefault()
-
     const href = event.currentTarget.href
+
+    event.preventDefault()
 
     await performRippleEffectAndWait(event)
     window.open(href, '_blank')
 }
 
-export function performRippleEffect(event) {
-    window.dispatchEvent(new CustomEvent(
-        EVENT_PERFORM_RIPPLE_EFFECT, {
-            detail: {
-                clickX: event.clientX,
-                clickY: event.clientY
+function performRippleEffect(event) {
+    window.dispatchEvent(
+        new CustomEvent(
+            EVENT_PERFORM_RIPPLE_EFFECT,
+            {
+                detail: {
+                    clickX: event.clientX,
+                    clickY: event.clientY
+                }
             }
-        })
+        )
     )
 }
 

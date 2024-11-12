@@ -1,3 +1,7 @@
+body {
+    --l-h-text-hint-2: .9rem;
+}
+
 .h-1,
 .h-2,
 .h-3,
@@ -74,10 +78,6 @@
     color: var(--color-link);
 }
 
-.text-link-disabled {
-    color: var(--color-button-disabled);
-}
-
 .text-hint-1,
 .text-hint-2,
 .text-hint-3 {
@@ -93,7 +93,7 @@
 }
 
 .text-hint-2 {
-    line-height: .9rem;
+    line-height: var(--l-h-text-hint-2);
 
     font-size: .65rem;
     letter-spacing: .0875rem;

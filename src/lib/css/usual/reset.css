@@ -1,0 +1,71 @@
+#root,
+#__next {
+    isolation: isolate;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus,
+button:focus,
+[contenteditable]:focus {
+    outline: none;
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+
+    cursor: pointer;
+}
+
+button:disabled {
+    pointer-events: none;
+}
+
+img {
+    object-position: center;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    color: transparent;
+    background-color: transparent;
+}
+
+b {
+    line-height: inherit;
+}

@@ -3,11 +3,13 @@
     import {page} from "$app/stores";
     import {fly} from "svelte/transition";
     import {cubicInOut} from "svelte/easing";
+    import BottomBar from "$lib/components/common/layout/small-screen/BottomBar.svelte";
 
     const {children} = $props()
 </script>
 
 <LeftMenuBigScreen/>
+<BottomBar/>
 
 <main class="max-w p-v-d-page m-h-auto">
     {#key $page.url.pathname}
@@ -31,6 +33,10 @@
     @media (max-width: 65em) {
         main {
             padding-left: var(--p-h);
+        }
+
+        .p-v-d-page {
+            padding-bottom: calc(var(--p-v-page) + var(--height-bottom-bar));
         }
     }
 </style>

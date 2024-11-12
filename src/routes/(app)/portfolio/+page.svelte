@@ -1,3 +1,3 @@
 <div class="max-w-page m-h-auto">
-    <h1 class="h-1 h-1-m-b">Portfolio</h1>
+    <h1 class="h-1 t-a-c">Portfolio</h1>
 </div>

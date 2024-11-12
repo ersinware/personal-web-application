@@ -1,40 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-#root,
-#__next {
-    isolation: isolate;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-body {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-font-smoothing: antialiased;
-    user-select: none;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:focus,
-button:focus,
-[contenteditable]:focus {
-    outline: none;
-}
-
-/* ****************************************************************************************************************** */
-
 :root, html, body {
     background-color: var(--color-background);
 }
@@ -108,7 +71,7 @@ body {
 
 .close-lamp {
     pointer-events: revert;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .hide {

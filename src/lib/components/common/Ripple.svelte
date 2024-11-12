@@ -21,7 +21,6 @@
         await waitFor(DURATION_RIPPLE)
 
         rippleState.perform = false
-        delete rippleState.style
     }
 </script>
 

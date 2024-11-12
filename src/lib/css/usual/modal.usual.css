@@ -1,0 +1,83 @@
+body {
+    --p-v-modal: calc(var(--p-v) * 1.5);
+    --g-v-d-modal: var(--p-v);
+
+    --max-h-modal: calc(var(--vh-actual) * .9);
+}
+
+.title-modal {
+    line-height: 2.25rem;
+
+    color: var(--color-title);
+
+    font-size: 2rem;
+    font-weight: 800;
+
+    margin-top: .25rem;
+}
+
+.title-modal,
+.text-modal {
+    font-family: Poppins, sans-serif;
+}
+
+.title-modal,
+.text-hint-modal {
+    text-align: center;
+    margin-bottom: .25rem;
+}
+
+.text-modal {
+    line-height: 1.25rem;
+
+    max-width: 20rem;
+
+    color: var(--color-text);
+
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+.text-hint-modal {
+    line-height: var(--l-h-text-hint-2);
+
+    margin-top: .75rem;
+
+    color: var(--color-text-unimportant);
+
+    font-family: Montserrat, sans-serif;
+    font-size: .65rem;
+    letter-spacing: .0875rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.g-v-d-modal {
+    gap: var(--g-v-d-modal);
+}
+
+.wrapper-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--gap-wrapper-modal-buttons));
+
+    margin-top: calc(var(--p-v) / 4);
+}
+
+@media (min-width: 65.001em) {
+    body {
+        --p-h-modal: calc(var(--p-h) * 1.5);
+        --gap-wrapper-modal-buttons: 2rem;
+    }
+
+    .big-screen-w-content-modal-small {
+        width: 25rem;
+    }
+}
+
+@media (max-width: 65em) {
+    body {
+        --p-h-modal: var(--p-h);
+        --gap-wrapper-modal-buttons: 1.5rem;
+    }
+}

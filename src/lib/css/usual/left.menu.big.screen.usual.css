@@ -2,7 +2,7 @@
     body {
         --left-wrapper-base-left-menu-big-screen: max(5vw, var(--p-h));
 
-        --width-icon-left-menu-big-screen: 1.35rem;
+        --width-icon-left-menu-big-screen: 1.4rem;
         --p-v-icon-left-menu-big-screen: .875rem;
         --p-h-icon-left-menu-big-screen: 1rem;
 
@@ -22,8 +22,8 @@
         width: var(--width-left-menu-big-screen);
     }
 
-    .wrapper-items-left-menu-big-screen {
-        padding-block: calc(var(--p-v-icon-left-menu-big-screen) * 2)
+    #wrapper-pages-left-menu-big-screen {
+        padding-block: calc(var(--p-v-icon-left-menu-big-screen) * 1.5)
     }
 
     .wrapper-item-left-menu-big-screen {

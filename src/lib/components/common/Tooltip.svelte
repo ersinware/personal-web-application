@@ -1,16 +1,16 @@
 <script>
     import {onMount} from "svelte";
-    import {
-        onMountHoverable,
-        onMountHoverableReverse,
-        removeHoverableListeners
-    } from "$lib/js/client/common/util.responsive.common.client.js";
     import {cubicInOut} from "svelte/easing";
     import {fly} from "svelte/transition";
-    import {randomID} from "$lib/js/common/util.common.js";
+    import {getRandomID} from "$lib/js/common/util.common.js";
+    import {
+        EVENT_ON_MOUNT_HOVERABLE,
+        EVENT_ON_MOUNT_HOVERABLE_REVERSE,
+        EVENT_REMOVE_HOVERABLE_LISTENERS
+    } from "$lib/js/client/common/event.common.client.js";
 
     const {
-        id = randomID(),
+        id = getRandomID(),
         children,
         left,
         content
@@ -21,24 +21,38 @@
     onMount(() => {
         const wrapper = document.getElementById(`wrapper-tooltip_${id}`)
 
-        onMountHoverable(
-            id,
-            () => {
-                wrapper.addEventListener('mouseenter', onMouseEnter)
-                wrapper.addEventListener('mouseleave', onMouseLeave)
-            }
+        window.dispatchEvent(
+            new CustomEvent(
+                EVENT_ON_MOUNT_HOVERABLE,
+                {
+                    detail: {
+                        id,
+                        f: () => {
+                            wrapper.addEventListener('mouseenter', onMouseEnter)
+                            wrapper.addEventListener('mouseleave', onMouseLeave)
+                        }
+                    }
+                }
+            )
         )
 
-        onMountHoverableReverse(
-            id,
-            () => {
-                wrapper.removeEventListener('mouseenter', onMouseEnter)
-                wrapper.removeEventListener('mouseleave', onMouseLeave)
-            }
+        window.dispatchEvent(
+            new CustomEvent(
+                EVENT_ON_MOUNT_HOVERABLE_REVERSE,
+                {
+                    detail: {
+                        id,
+                        f: () => {
+                            wrapper.removeEventListener('mouseenter', onMouseEnter)
+                            wrapper.removeEventListener('mouseleave', onMouseLeave)
+                        }
+                    }
+                }
+            )
         )
 
         return () => {
-            removeHoverableListeners(id)
+            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_HOVERABLE_LISTENERS, {detail: id}))
         }
     })
 
@@ -80,13 +94,13 @@
     }
 
     .tooltip {
-        padding: 0.225rem .625rem 0.25rem;
+        padding: 0.25rem .625rem 0.25rem;
 
         color: var(--color-text-tooltip);
         background-color: var(--color-background-tooltip);
 
         font-family: Poppins, sans-serif;
-        font-size: var(--font-size-tooltip, .6rem);
+        font-size: var(--font-size-tooltip, .6125rem);
 
         border-radius: .75rem;
 
