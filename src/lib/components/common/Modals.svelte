@@ -4,15 +4,12 @@
     import {getGlobalState} from "$lib/js/client/common/util.global.state.common.client.svelte.js";
     import {DURATION_TRANSITION_MODAL} from "$lib/js/client/common/constant.transition.common.client.js";
     import {onMount} from "svelte";
-    import {
-        EVENT_ON_MOUNT_BIG_SCREEN,
-        EVENT_ON_MOUNT_BIG_SCREEN_REVERSE
-    } from "$lib/js/client/common/event.common.client.js";
+    import {EVENT_ON_MOUNT_BIG_SCREEN, EVENT_ON_MOUNT_SMALL_SCREEN} from "$lib/js/client/common/event.common.client.js";
 
     const openModals = getGlobalState('openModals'),
         lastModal = $derived(openModals.value[openModals.value.length - 1])
 
-    let bigScreen = $state.raw()
+    let TRANSITION_MODAL_Y = $state.raw()
 
     onMount(() => {
             window.dispatchEvent(
@@ -22,7 +19,7 @@
                         detail: {
                             id: 'modals',
                             f: () => {
-                                bigScreen = true
+                                TRANSITION_MODAL_Y = '-1rem'
                             }
                         }
                     }
@@ -31,12 +28,12 @@
 
             window.dispatchEvent(
                 new CustomEvent(
-                    EVENT_ON_MOUNT_BIG_SCREEN_REVERSE,
+                    EVENT_ON_MOUNT_SMALL_SCREEN,
                     {
                         detail: {
                             id: 'modals',
                             f: () => {
-                                bigScreen = false
+                                TRANSITION_MODAL_Y = '1rem'
                             }
                         }
                     }
@@ -47,19 +44,17 @@
 </script>
 
 {#if lastModal}
-    <div id="wrapper-base-modal"
-         class="p-f small-screen-w-100 small-screen-max-w-phone"
+    <div class="wrapper-base p-f z-index-5 small-screen-w-100 small-screen-max-w-phone"
          transition:fly={{
-                    y: bigScreen ? '-1rem' : '1rem',
+                    y: TRANSITION_MODAL_Y,
                     duration: DURATION_TRANSITION_MODAL,
                     easing: cubicInOut
                 }}>
 
         {#key lastModal.component}
-            <div id="wrapper-modal"
-                 class="b-box color-background o-y-scroll "
+            <div class="wrapper b-box color-background o-y-scroll"
                  in:fly={{
-                    y: bigScreen ? '-1rem' : '1rem',
+                    y: TRANSITION_MODAL_Y,
                     duration: DURATION_TRANSITION_MODAL,
                     easing: cubicInOut
                 }}>
@@ -71,12 +66,11 @@
 {/if}
 
 <style>
-    #wrapper-base-modal {
+    .wrapper-base {
         left: 50%;
-        z-index: var(--z-index-four);
     }
 
-    #wrapper-modal {
+    .wrapper {
         max-height: var(--max-h-modal);
 
         padding-block: var(--p-v-modal);
@@ -85,23 +79,23 @@
     }
 
     @media (min-width: 65.001em) {
-        #wrapper-base-modal {
+        .wrapper-base {
             top: 50%;
             transform: translate(-50%, -50%);
         }
 
-        #wrapper-modal {
+        .wrapper {
             border-radius: var(--border-radius);
         }
     }
 
     @media (max-width: 65em) {
-        #wrapper-base-modal {
+        .wrapper-base {
             bottom: 0;
             transform: translateX(-50%);
         }
 
-        #wrapper-modal {
+        .wrapper {
             border-top-left-radius: var(--border-radius);
             border-top-right-radius: var(--border-radius);
         }

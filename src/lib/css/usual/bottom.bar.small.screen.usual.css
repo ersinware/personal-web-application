@@ -1,3 +1,13 @@
-body {
-    --height-bottom-bar: 6rem;
+@media (max-width: 65em) {
+    body {
+        --height-bottom-bar: 6rem;
+    }
+
+    .small-screen-p-b-page-for-bottom-bar {
+        padding-bottom: calc(var(--p-v-page) + var(--height-bottom-bar));
+    }
+
+    .m-b-minus-last-section {
+        margin-bottom: calc((var(--p-v-page) + var(--height-bottom-bar)) * -1) !important;
+    }
 }

@@ -1,0 +1,88 @@
+.button {
+    box-sizing: border-box;
+    height: 1.905rem;
+
+    padding: .205rem 1.075rem .2rem;
+
+    color: var(--color-button);
+    background-color: var(--color-accent);
+
+    font-size: .7rem;
+    letter-spacing: .0625rem;
+
+    border-radius: var(--border-radius);
+
+    transition-timing-function: ease-in-out;
+    transition: color .25s, background-color .25s, box-shadow .5s;
+}
+
+.button,
+.button-nude {
+    line-height: 1.5rem;
+    width: min-content;
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+.button-nude {
+    color: var(--color-accent);
+    transition: color .25s ease-in-out;
+
+    font-size: .7125rem;
+    letter-spacing: .1rem;
+}
+
+.button-nude.button-nude-positive {
+    color: var(--color-positive);
+}
+
+.button-nude.button-nude-negative {
+    color: var(--color-error);
+}
+
+.button-nude.button-nude-negative-unimportant {
+    color: var(--color-text-unimportant);
+}
+
+.button-disabled,
+.button-nude-disabled {
+    pointer-events: none;
+}
+
+.button.button-disabled {
+    background-color: var(--color-button-background-disabled);
+    color: var(--color-button-disabled);
+}
+
+:is(button, .button-nude).button-nude-disabled {
+    color: var(--color-button-disabled);
+}
+
+.m-t-button {
+    margin-top: calc(var(--p-v) / 4);
+}
+
+@media (hover: hover) {
+    .button:hover {
+        box-shadow: var(--color-accent) 0 0 .75rem;
+    }
+
+    .button-nude:hover {
+        color: var(--color-accent-darker);
+    }
+
+    .button-nude.button-nude-positive:hover {
+        color: var(--color-positive-darker);
+    }
+
+    .button-nude.button-nude-negative:hover {
+        color: var(--color-error-darker);
+    }
+
+    .button-nude.button-nude-negative-unimportant:hover {
+        color: var(--color-error-darker);
+    }
+}

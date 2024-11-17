@@ -1,0 +1,24 @@
+.icon-section-homepage-technical-skills {
+    width: 2.625rem;
+    height: 2.625rem;
+}
+
+#icon-node-js-section-homepage-technical-skills {
+    transform: scale(1.09);
+}
+
+#icon-mongo-db-section-homepage-technical-skills {
+    transform: scale(1.1);
+}
+
+#icon-postgre-sql-section-homepage-technical-skills {
+    transform: scale(1.075);
+}
+
+#icon-redis-section-homepage-technical-skills {
+    transform: scale(1.1);
+}
+
+.image-section.image-section-homepage-technical-skills {
+    aspect-ratio: 680/766.89;
+}

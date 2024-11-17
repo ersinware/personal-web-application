@@ -7,20 +7,20 @@ body {
     --max-w-page: 77.715rem;
     --max-w-page-small: 65rem;
     --max-w-phone: 30.714285714rem;
+    --max-w-phone-with-padding-h: calc(var(--max-w-phone) - var(--p-h) * 2);
 
     /* vh is defined in app.html */
     --vh-actual: calc(var(--vh, 100vh));
 
-    --border-radius: 1.5rem;
-
-    --z-index-one: 1;
-    --z-index-two: 2;
-    --z-index-three: 3;
-    --z-index-four: 4;
+    --border-radius: 1.75rem;
 }
 
 .p-none {
     pointer-events: none;
+}
+
+.p-none-revert {
+    pointer-events: auto !important;
 }
 
 .b-box {
@@ -29,6 +29,11 @@ body {
 
 .b-r-d {
     border-radius: var(--border-radius);
+}
+
+.b-t-r-d {
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
 }
 
 .b-r-c {
@@ -65,7 +70,7 @@ body {
 }
 
 .h-divider {
-    height: .1px;
+    height: .51px;
     background-color: var(--color-divider);
 }
 
@@ -79,7 +84,7 @@ body {
 }
 
 .b-shadow {
-    box-shadow: 0 0 .1rem var(--color-divider);
+    box-shadow: 0 0 .1rem var(--color-shadow);
 }
 
 @media (hover: hover) {

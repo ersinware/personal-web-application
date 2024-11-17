@@ -2,6 +2,10 @@
     justify-items: center;
 }
 
+.j-i-r {
+    justify-items: right;
+}
+
 .j-c-c {
     justify-content: center;
 }

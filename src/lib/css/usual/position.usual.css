@@ -1,15 +1,20 @@
+body {
+    /* to track */
+    --z-index-2: 2;
+}
+
 .p-r {
     position: relative;
 }
 
 .p-f {
     position: fixed;
-    z-index: var(--z-index-one);
+    z-index: 1;
 }
 
 .p-a {
     position: absolute;
-    z-index: var(--z-index-one);
+    z-index: 1;
 }
 
 .p-c {
@@ -42,4 +47,24 @@
 
 .r-0 {
     right: 0;
+}
+
+.z-index-2 {
+    z-index: var(--z-index-2);
+}
+
+.z-index-3 {
+    z-index: 3;
+}
+
+.z-index-4 {
+    z-index: 4;
+}
+
+.z-index-5 {
+    z-index: 5;
+}
+
+.z-index-minus-1 {
+    z-index: -1;
 }

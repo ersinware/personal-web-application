@@ -66,6 +66,8 @@ svg {
     background-color: transparent;
 }
 
-b {
+b,
+strong {
     line-height: inherit;
+    font-weight: 500;
 }

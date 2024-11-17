@@ -3,14 +3,12 @@
 </script>
 
 <button id="lamp"
-        class="p-none p-f l-0 t-0 w-h-100" onclick={onLampClick}
+        class="p-none p-f z-index-4 l-0 t-0 w-h-100" onclick={onLampClick}
         aria-label="Lamp Button"></button>
 
 <style>
     #lamp {
         cursor: default;
-
-        z-index: var(--z-index-three);
 
         background: rgba(0, 0, 0, 0.5) !important;
 

@@ -3,7 +3,7 @@
 }
 
 .d-contents {
-    display: contents;
+    display: contents !important;
 }
 
 .d-block {

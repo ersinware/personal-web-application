@@ -2,6 +2,7 @@ import {minify} from "html-minifier";
 
 export function handle({event, resolve}) {
     let page = ''
+
     return resolve(
         event,
         {

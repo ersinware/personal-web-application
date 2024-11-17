@@ -11,7 +11,7 @@ body {
     color: var(--color-title);
 
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 900;
 
     margin-top: .25rem;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 .text-hint-modal {
-    line-height: var(--l-h-text-hint-2);
+    line-height: .9rem;
 
     margin-top: .75rem;
 

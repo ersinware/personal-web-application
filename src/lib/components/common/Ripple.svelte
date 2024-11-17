@@ -26,7 +26,7 @@
 
 {#if rippleState.perform}
     <article style={rippleState.style}
-             class="ripple type-one p-f p-none b-r-c"
+             class="ripple p-none p-f z-index-5 b-r-c"
              in:scale={{
                 duration: DURATION_RIPPLE,
                 opacity: 1,
@@ -38,7 +38,6 @@
 <style>
     .ripple {
         transform: translate(-50%, -50%);
-        z-index: var(--z-index-four);
         background-color: var(--color-ripple);
 
         width: 6.5rem;

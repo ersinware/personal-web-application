@@ -11,6 +11,10 @@
 }
 
 @media (max-width: 65em) {
+    .small-screen-f-column {
+        flex-direction: column;
+    }
+
     .small-screen-f-column-reverse {
         flex-direction: column-reverse;
     }

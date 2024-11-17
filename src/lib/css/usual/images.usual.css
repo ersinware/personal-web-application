@@ -1,0 +1,33 @@
+.image-square {
+    aspect-ratio: 1/1;
+}
+
+.image-section {
+    max-width: var(--max-w-section-image);
+}
+
+@media (min-width: 65.001em) {
+    body {
+        --max-w-section-image: 42.5rem;
+    }
+}
+
+@media (max-width: 65em) {
+    body {
+        --max-w-section-image: 35rem;
+    }
+
+    .image-section {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (hover: hover) {
+    .image-hoverable {
+        transition: transform .5s ease-in-out;
+    }
+
+    .wrapper-image-hoverable:hover .image-hoverable {
+        transform: scale(1.0375);
+    }
+}

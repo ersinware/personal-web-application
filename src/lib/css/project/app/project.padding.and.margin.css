@@ -1,0 +1,5 @@
+@media (min-width: 65.001em) {
+    .big-screen-m-b-wrapper-section-texts {
+        margin-bottom: calc(var(--p-v) / 2);
+    }
+}

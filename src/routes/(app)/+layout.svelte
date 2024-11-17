@@ -1,42 +1,22 @@
 <script>
+    import '$lib/css/project/app/project.padding.and.margin.css'
+    import '$lib/css/project/app/project.width.and.height.app.css'
+
     import LeftMenuBigScreen from "$lib/components/common/layout/big-screen/LeftMenuBigScreen.svelte";
-    import {page} from "$app/stores";
+    import BottomBar from "$lib/components/common/layout/small-screen/BottomBar.svelte";
     import {fly} from "svelte/transition";
     import {cubicInOut} from "svelte/easing";
-    import BottomBar from "$lib/components/common/layout/small-screen/BottomBar.svelte";
 
-    const {children} = $props()
+    const {children, data} = $props()
 </script>
 
 <LeftMenuBigScreen/>
 <BottomBar/>
 
-<main class="max-w p-v-d-page m-h-auto">
-    {#key $page.url.pathname}
-        <div in:fly={{y: '1rem', duration: 600, easing: cubicInOut}}>
+<main class="p-t-page p-r-d o-hidden big-screen-p-b-page big-screen-p-l-for-left-menu small-screen-p-b-page-for-bottom-bar small-screen-p-l-d">
+    {#key data.pathname}
+        <div class="max-w m-h-auto" in:fly={{y: '1rem', duration: 600, easing: cubicInOut}}>
             {@render children()}
         </div>
     {/key}
 </main>
-
-<style>
-    main {
-        padding-right: var(--p-h);
-    }
-
-    @media (min-width: 65.001em) {
-        main {
-            padding-left: calc(var(--left-wrapper-base-left-menu-big-screen) + var(--width-left-menu-big-screen) + var(--p-h));
-        }
-    }
-
-    @media (max-width: 65em) {
-        main {
-            padding-left: var(--p-h);
-        }
-
-        .p-v-d-page {
-            padding-bottom: calc(var(--p-v-page) + var(--height-bottom-bar));
-        }
-    }
-</style>

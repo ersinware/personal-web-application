@@ -2,7 +2,7 @@ import {
     EVENT_CLOSE_ALL_MODALS,
     EVENT_CLOSE_LAMP,
     EVENT_CLOSE_LAST_MODAL,
-    EVENT_ON_BIG_SCREEN,
+    EVENT_ON_MOUNT_BIG_SCREEN,
     EVENT_OPEN_LAMP,
     EVENT_OPEN_MODAL
 } from "$lib/js/client/common/event.common.client.js";
@@ -17,7 +17,17 @@ export function init(_openModals) {
     window.addEventListener(EVENT_CLOSE_LAST_MODAL, closeLastModal)
     window.addEventListener(EVENT_CLOSE_ALL_MODALS, closeAllModals)
 
-    window.addEventListener(EVENT_ON_BIG_SCREEN, onBigScreen)
+    window.dispatchEvent(
+        new CustomEvent(
+            EVENT_ON_MOUNT_BIG_SCREEN,
+            {
+                detail: {
+                    id: 'util.modal.common.client',
+                    f: onBigScreen
+                }
+            }
+        )
+    )
 
     document.addEventListener(
         'keydown',

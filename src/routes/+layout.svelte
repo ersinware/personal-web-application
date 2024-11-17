@@ -6,6 +6,8 @@
     import '$lib/css/usual/flex.usual.css';
     import '$lib/css/usual/gap.usual.css';
     import '$lib/css/usual/grid.usual.css';
+    import '$lib/css/usual/button.usual.css';
+    import '$lib/css/usual/images.usual.css';
     import '$lib/css/usual/layout.property.usual.css';
     import '$lib/css/usual/left.menu.big.screen.usual.css';
     import '$lib/css/usual/modal.usual.css';
@@ -19,7 +21,6 @@
     import '$lib/css/usual/width.and.height.usual.css';
 
     import '$lib/css/project/common/project.fonts.common.css';
-    import '$lib/css/project/common/project.grid.common.css';
 
     import {createGlobalState, getGlobalState} from "$lib/js/client/common/util.global.state.common.client.svelte.js";
     import {init as initUtilResponsive} from "$lib/js/client/common/util.responsive.common.client.js";
@@ -37,6 +38,7 @@
     import Lamp from "$lib/components/common/Lamp.svelte";
     import {init as initUtil} from "$lib/js/client/common/util.common.client.js";
     import {init as initUtilLamp} from "$lib/js/client/common/util.lamp.common.client.js";
+    import {init as initUtilObservation} from "$lib/js/client/common/util.observation.common.client.js";
 
     createGlobalStates()
 
@@ -59,6 +61,7 @@
         initUtilLamp()
         initUtilResponsive()
         initUtilModal(getGlobalState('openModals'))
+        initUtilObservation()
     }
 
     function _beforeNavigate({cancel, type}) {

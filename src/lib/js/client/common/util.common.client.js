@@ -1,8 +1,6 @@
 import {goto} from "$app/navigation";
-import {EVENT_PERFORM_RIPPLE_EFFECT} from "$lib/js/client/common/event.common.client.js";
-import {waitFor} from "$lib/js/common/util.common.js";
-import {DURATION_RIPPLE} from "$lib/js/client/common/constant.transition.common.client.js";
 import {browser} from "$app/environment";
+import {performRippleEffectAndWait} from "$lib/js/client/common/util.ripple.common.client.js";
 
 export function init() {
     initZeroTimeout()
@@ -47,25 +45,6 @@ export async function onLinkClickOnNewTab(event) {
 
     await performRippleEffectAndWait(event)
     window.open(href, '_blank')
-}
-
-function performRippleEffect(event) {
-    window.dispatchEvent(
-        new CustomEvent(
-            EVENT_PERFORM_RIPPLE_EFFECT,
-            {
-                detail: {
-                    clickX: event.clientX,
-                    clickY: event.clientY
-                }
-            }
-        )
-    )
-}
-
-export async function performRippleEffectAndWait(event) {
-    performRippleEffect(event)
-    await waitFor(DURATION_RIPPLE)
 }
 
 export function yieldToMain() {

@@ -65,7 +65,7 @@
     }
 </script>
 
-<div id="wrapper-tooltip_{id}" class="wrapper-tooltip p-r">
+<div id="wrapper-tooltip_{id}" class="wrapper p-r">
     {@render children()}
 
     {#if show}
@@ -89,18 +89,18 @@
 </div>
 
 <style>
-    .wrapper-tooltip {
+    .wrapper {
         display: var(--display-wrapper-tooltip, block);
     }
 
     .tooltip {
-        padding: 0.25rem .625rem 0.25rem;
+        padding: 0.25rem .675rem 0.25rem;
 
         color: var(--color-text-tooltip);
         background-color: var(--color-background-tooltip);
 
         font-family: Poppins, sans-serif;
-        font-size: var(--font-size-tooltip, .6125rem);
+        font-size: var(--font-size-tooltip, .6rem);
 
         border-radius: .75rem;
 

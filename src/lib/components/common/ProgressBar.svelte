@@ -10,8 +10,15 @@
     let navigatedTimeout
 
     onMount(() => {
-        window.addEventListener(`${EVENT_NAVIGATING}${id ? `_${id}` : ''}`, onNavigating)
-        window.addEventListener(`${EVENT_NAVIGATED}${id ? `_${id}` : ''}`, onNavigated)
+        const postfix = id ? `-${id}` : ''
+
+        window.addEventListener(`${EVENT_NAVIGATING}${postfix}`, onNavigating)
+        window.addEventListener(`${EVENT_NAVIGATED}${postfix}`, onNavigated)
+
+        return () => {
+            window.addEventListener(`${EVENT_NAVIGATING}${postfix}`, onNavigating)
+            window.addEventListener(`${EVENT_NAVIGATED}${postfix}`, onNavigated)
+        }
     })
 
     async function onNavigating() {
@@ -43,7 +50,7 @@
     }
 </script>
 
-<article class="wrapper p-f t-0"
+<article class="wrapper p-f z-index-2 t-0"
          class:navigating={state.navigating}
          class:navigated={state.navigated}>
 </article>
@@ -51,12 +58,11 @@
 <style>
     .wrapper {
         left: 0;
-        z-index: var(--z-index-two);
 
         width: 0;
         height: 0.25rem;
 
-        background-color: var(--color-accent);
+        background-color: var(--color-progress-bar, var(--color-accent-darker));
 
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
