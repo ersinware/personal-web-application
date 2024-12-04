@@ -7,7 +7,6 @@ body {
     --max-w-page: 77.715rem;
     --max-w-page-small: 65rem;
     --max-w-phone: 30.714285714rem;
-    --max-w-phone-with-padding-h: calc(var(--max-w-phone) - var(--p-h) * 2);
 
     /* vh is defined in app.html */
     --vh-actual: calc(var(--vh, 100vh));

@@ -14,7 +14,6 @@
 
     const {
         mediaData,
-        groupId,
         id = getRandomID(),
         style,
         classes,
@@ -28,7 +27,7 @@
 
     onMount(() => {
         if (manual || onlyManual) {
-            window.addEventListener(`${EVENT_LOAD_LAZY_IMAGE}-${groupId ?? id}`, load)
+            window.addEventListener(`${EVENT_LOAD_LAZY_IMAGE}-${id}`, load)
 
             if (onlyManual)
                 return
@@ -64,7 +63,7 @@
 
     function removeListeners() {
         if (manual || onlyManual) {
-            window.removeEventListener(`${EVENT_LOAD_LAZY_IMAGE}-${groupId ?? id}`, load)
+            window.removeEventListener(`${EVENT_LOAD_LAZY_IMAGE}-${id}`, load)
 
             if (onlyManual)
                 return

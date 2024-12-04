@@ -1,17 +1,16 @@
 <script>
-    import '$lib/css/project/app/pages/homepage/project.section.homepage.portfolio.app.css'
     import NavigationSectionHomepagePortfolio
         from "$lib/components/app/page/homepage/portfolio/HomepageSectionPortfolioSliderNavigation.svelte";
     import Slider from "$lib/components/common/Slider.svelte";
     import {onMount} from "svelte";
     import {
         EVENT_ADD_INTERSECTION_OBSERVER,
+        EVENT_ADD_LISTENER_BIG_SCREEN,
+        EVENT_ADD_LISTENER_SMALL_SCREEN,
         EVENT_LOAD_LAZY_IMAGE,
-        EVENT_ON_MOUNT_BIG_SCREEN,
-        EVENT_ON_MOUNT_SMALL_SCREEN,
-        EVENT_REMOVE_BIG_SCREEN_LISTENER,
         EVENT_REMOVE_INTERSECTION_OBSERVER,
-        EVENT_REMOVE_SMALL_SCREEN_LISTENER,
+        EVENT_REMOVE_LISTENER_BIG_SCREEN,
+        EVENT_REMOVE_LISTENER_SMALL_SCREEN,
         EVENT_SLIDER_INDEX_CHANGED,
         EVENT_SLIDER_INSERT_ELEMENTS_FOR_INFINITY
     } from "$lib/js/client/common/event.common.client.js";
@@ -64,11 +63,11 @@
 
     function adjustScrollDuration() {
         window.dispatchEvent(
-            new CustomEvent(EVENT_ON_MOUNT_BIG_SCREEN, { detail: { id, f: () => scrollDuration = 1250 } })
+            new CustomEvent(EVENT_ADD_LISTENER_BIG_SCREEN, { detail: { id, f: () => scrollDuration = 1250 } })
         )
 
         window.dispatchEvent(
-            new CustomEvent(EVENT_ON_MOUNT_SMALL_SCREEN, { detail: { id, f: () => scrollDuration = 750 } })
+            new CustomEvent(EVENT_ADD_LISTENER_SMALL_SCREEN, { detail: { id, f: () => scrollDuration = 750 } })
         )
     }
 
@@ -113,15 +112,15 @@
     function removeListeners() {
         window.dispatchEvent(new CustomEvent(EVENT_REMOVE_INTERSECTION_OBSERVER, { detail: id }))
 
-        window.dispatchEvent(new CustomEvent(EVENT_REMOVE_BIG_SCREEN_LISTENER, { detail: id }))
-        window.dispatchEvent(new CustomEvent(EVENT_REMOVE_SMALL_SCREEN_LISTENER, { detail: id }))
+        window.dispatchEvent(new CustomEvent(EVENT_REMOVE_LISTENER_BIG_SCREEN, { detail: id }))
+        window.dispatchEvent(new CustomEvent(EVENT_REMOVE_LISTENER_SMALL_SCREEN, { detail: id }))
 
         window.removeEventListener(EVENT_SLIDER_INSERT_ELEMENTS_FOR_INFINITY + eventPostfix, onInsertElementsForInfinite)
         window.removeEventListener(EVENT_SLIDER_INDEX_CHANGED + eventPostfix, onSliderIndexChange)
     }
 </script>
 
-<div class="wrapper p-r">
+<div class="p-r m-t-d">
     <Slider
             {id}
             bind:scrollDuration
@@ -146,9 +145,3 @@
             {id}
             bind:scrollDuration/>
 </div>
-
-<style>
-    .wrapper {
-        margin-top: 5rem;
-    }
-</style>

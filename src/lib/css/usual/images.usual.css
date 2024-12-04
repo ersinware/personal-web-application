@@ -2,6 +2,7 @@
     aspect-ratio: 1/1;
 }
 
+.wrapper-image-section,
 .image-section {
     max-width: var(--max-w-section-image);
 }
@@ -17,8 +18,8 @@
         --max-w-section-image: 35rem;
     }
 
-    .image-section {
-        margin-bottom: 1.5rem;
+    .wrapper-image-section {
+        margin-bottom: 1.75rem;
     }
 }
 

@@ -3,22 +3,27 @@
     height: 2.625rem;
 }
 
-#icon-node-js-section-homepage-technical-skills {
+.icon-node-js-section-homepage-technical-skills {
     transform: scale(1.09);
 }
 
-#icon-mongo-db-section-homepage-technical-skills {
-    transform: scale(1.1);
-}
-
-#icon-postgre-sql-section-homepage-technical-skills {
+.icon-svelte-section-homepage-technical-skills {
     transform: scale(1.075);
 }
 
-#icon-redis-section-homepage-technical-skills {
-    transform: scale(1.1);
+.icon-mongo-db-section-homepage-technical-skills {
+    transform: scale(1.075);
 }
 
-.image-section.image-section-homepage-technical-skills {
+.icon-postgre-sql-section-homepage-technical-skills {
+    transform: scale(1.075);
+}
+
+.icon-redis-section-homepage-technical-skills {
+    transform: scale(1.15);
+}
+
+.wrapper-image-section-homepage-technical-skills,
+.image-section-homepage-technical-skills {
     aspect-ratio: 680/766.89;
 }

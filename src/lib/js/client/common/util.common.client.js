@@ -29,27 +29,25 @@ function initZeroTimeout() {
     window.setZeroTimeout = setZeroTimeout
 }
 
-export async function onLinkClick(event) {
-    const href = event.currentTarget.href
-
-    event.preventDefault()
-
-    await performRippleEffectAndWait(event)
-    goto(href)
-}
-
-export async function onLinkClickOnNewTab(event) {
-    const href = event.currentTarget.href
-
-    event.preventDefault()
-
-    await performRippleEffectAndWait(event)
-    window.open(href, '_blank')
-}
-
 export function yieldToMain() {
     if (browser && setZeroTimeout)
         return new Promise(resolve => setZeroTimeout(() => queueMicrotask(resolve)))
     else
         return new Promise(resolve => setTimeout(() => queueMicrotask(resolve), 0))
+}
+
+export async function onLinkClick(event) {
+    event.preventDefault()
+
+    const href = event.currentTarget.href
+    await performRippleEffectAndWait(event)
+    goto(href)
+}
+
+export async function onLinkClickOnNewTab(event) {
+    event.preventDefault()
+
+    const href = event.currentTarget.href
+    await performRippleEffectAndWait(event)
+    window.open(href, '_blank')
 }

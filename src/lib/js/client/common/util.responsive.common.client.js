@@ -1,35 +1,35 @@
 import {
-    EVENT_ON_MOUNT_BIG_SCREEN,
-    EVENT_ON_MOUNT_BIG_SCREEN_REVERSE,
-    EVENT_ON_MOUNT_HOVERABLE,
-    EVENT_ON_MOUNT_HOVERABLE_REVERSE,
-    EVENT_ON_MOUNT_SMALL_SCREEN,
-    EVENT_ON_MOUNT_SMALL_SCREEN_REVERSE,
-    EVENT_ON_MOUNT_TOUCHABLE,
-    EVENT_ON_MOUNT_TOUCHABLE_REVERSE,
-    EVENT_REMOVE_BIG_SCREEN_LISTENER,
-    EVENT_REMOVE_BIG_SCREEN_LISTENERS,
-    EVENT_REMOVE_BIG_SCREEN_REVERSE_LISTENER,
-    EVENT_REMOVE_HOVERABLE_LISTENER,
-    EVENT_REMOVE_HOVERABLE_LISTENERS,
-    EVENT_REMOVE_HOVERABLE_REVERSE_LISTENER,
-    EVENT_REMOVE_SCREEN_LISTENERS,
-    EVENT_REMOVE_SMALL_SCREEN_LISTENER,
-    EVENT_REMOVE_SMALL_SCREEN_LISTENERS,
-    EVENT_REMOVE_SMALL_SCREEN_REVERSE_LISTENER,
-    EVENT_REMOVE_TOUCHABLE_LISTENER,
-    EVENT_REMOVE_TOUCHABLE_LISTENERS,
-    EVENT_REMOVE_TOUCHABLE_REVERSE_LISTENER
+    EVENT_ADD_LISTENER_BIG_SCREEN,
+    EVENT_ADD_LISTENER_BIG_SCREEN_REVERSE,
+    EVENT_ADD_LISTENER_HOVERABLE,
+    EVENT_ADD_LISTENER_HOVERABLE_REVERSE,
+    EVENT_ADD_LISTENER_SMALL_SCREEN,
+    EVENT_ADD_LISTENER_SMALL_SCREEN_REVERSE,
+    EVENT_ADD_LISTENER_TOUCHABLE,
+    EVENT_ADD_LISTENER_TOUCHABLE_REVERSE,
+    EVENT_REMOVE_LISTENER_BIG_SCREEN,
+    EVENT_REMOVE_LISTENERS_BIG_SCREEN,
+    EVENT_REMOVE_LISTENER_BIG_SCREEN_REVERSE,
+    EVENT_REMOVE_LISTENER_HOVERABLE,
+    EVENT_REMOVE_LISTENERS_HOVERABLE,
+    EVENT_REMOVE_LISTENER_HOVERABLE_REVERSE,
+    EVENT_REMOVE_LISTENERS_SCREEN,
+    EVENT_REMOVE_LISTENER_SMALL_SCREEN,
+    EVENT_REMOVE_LISTENERS_SMALL_SCREEN,
+    EVENT_REMOVE_LISTENER_SMALL_SCREEN_REVERSE,
+    EVENT_REMOVE_LISTENER_TOUCHABLE,
+    EVENT_REMOVE_LISTENERS_TOUCHABLE,
+    EVENT_REMOVE_LISTENER_TOUCHABLE_REVERSE
 } from "$lib/js/client/common/event.common.client.js";
 
-const mapOnMountBigScreen = new Map(),
-    mapOnMountBigScreenReverse = new Map(),
-    mapOnMountSmallScreen = new Map(),
-    mapOnMountSmallScreenReverse = new Map(),
-    mapOnMountHoverable = new Map(),
-    mapOnMountHoverableReverse = new Map(),
-    mapOnMountTouchable = new Map(),
-    mapOnMountTouchableReverse = new Map()
+const mapListenersBigScreen = new Map(),
+    mapListenersBigScreenReverse = new Map(),
+    mapListenersSmallScreen = new Map(),
+    mapListenersSmallScreenReverse = new Map(),
+    mapListenersHoverable = new Map(),
+    mapListenersHoverableReverse = new Map(),
+    mapListenersTouchable = new Map(),
+    mapListenersTouchableReverse = new Map()
 
 export function init() {
     setupScreen()
@@ -50,112 +50,114 @@ function setupScreen() {
             }
         )
 
-    window.addEventListener(EVENT_ON_MOUNT_BIG_SCREEN, onMountBigScreen)
-    window.addEventListener(EVENT_ON_MOUNT_BIG_SCREEN_REVERSE, onMountBigScreenReverse)
-    window.addEventListener(EVENT_REMOVE_BIG_SCREEN_LISTENER, removeBigScreenListener)
-    window.addEventListener(EVENT_REMOVE_BIG_SCREEN_REVERSE_LISTENER, removeBigScreenReverseListener)
-    window.addEventListener(EVENT_REMOVE_BIG_SCREEN_LISTENERS, removeBigScreenListeners)
+    window.addEventListener(EVENT_ADD_LISTENER_BIG_SCREEN, addListenerBigScreen)
+    window.addEventListener(EVENT_ADD_LISTENER_BIG_SCREEN_REVERSE, addListenerBigScreenReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENER_BIG_SCREEN, removeListenerBigScreen)
+    window.addEventListener(EVENT_REMOVE_LISTENER_BIG_SCREEN_REVERSE, removeListenerBigScreenReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENERS_BIG_SCREEN, removeListenersBigScreen)
 
-    window.addEventListener(EVENT_ON_MOUNT_SMALL_SCREEN, onMountSmallScreen)
-    window.addEventListener(EVENT_ON_MOUNT_SMALL_SCREEN_REVERSE, onMountSmallScreenReverse)
-    window.addEventListener(EVENT_REMOVE_SMALL_SCREEN_LISTENER, removeSmallScreenListener)
-    window.addEventListener(EVENT_REMOVE_SMALL_SCREEN_REVERSE_LISTENER, removeSmallScreenReverseListener)
-    window.addEventListener(EVENT_REMOVE_SMALL_SCREEN_LISTENERS, removeSmallScreenListeners)
+    window.addEventListener(EVENT_ADD_LISTENER_SMALL_SCREEN, addListenerSmallScreen)
+    window.addEventListener(EVENT_ADD_LISTENER_SMALL_SCREEN_REVERSE, addListenerSmallScreenReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENER_SMALL_SCREEN, removeListenerSmallScreen)
+    window.addEventListener(EVENT_REMOVE_LISTENER_SMALL_SCREEN_REVERSE, removeListenerSmallScreenReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENERS_SMALL_SCREEN, removeListenersSmallScreen)
 
-    window.addEventListener(EVENT_REMOVE_SCREEN_LISTENERS, removeScreenListeners)
+    window.addEventListener(EVENT_REMOVE_LISTENERS_SCREEN, removeListenersScreen)
 }
 
 function onBigScreen() {
-    for (const f of mapOnMountSmallScreenReverse.values())
+    for (const f of mapListenersSmallScreenReverse.values())
         f()
 
-    for (const f of mapOnMountBigScreen.values())
+    for (const f of mapListenersBigScreen.values())
         f()
 }
 
 function onSmallScreen() {
-    for (const f of mapOnMountBigScreenReverse.values())
+    for (const f of mapListenersBigScreenReverse.values())
         f()
 
-    for (const f of mapOnMountSmallScreen.values())
+    for (const f of mapListenersSmallScreen.values())
         f()
 }
 
-function onMountBigScreen(event) {
+function addListenerBigScreen(event) {
     const { id, f } = event.detail
 
-    mapOnMountBigScreen.set(id, f)
+    mapListenersBigScreen.set(id, f)
 
     if (window.matchMedia("(min-width: 65.001em)").matches)
         f()
 }
 
-function onMountBigScreenReverse(event) {
+function addListenerBigScreenReverse(event) {
     const { id, f } = event.detail
 
-    mapOnMountBigScreenReverse.set(id, f)
+    mapListenersBigScreenReverse.set(id, f)
 }
 
-function removeBigScreenListener(event) {
+function removeListenerBigScreen(event) {
     const id = event.detail
 
-    mapOnMountBigScreen.delete(id)
+    mapListenersBigScreen.delete(id)
 }
 
-function removeBigScreenReverseListener(event) {
+function removeListenerBigScreenReverse(event) {
     const id = event.detail
 
-    mapOnMountBigScreenReverse.delete(id)
+    mapListenersBigScreenReverse.delete(id)
 }
 
-function removeBigScreenListeners(event) {
+function removeListenersBigScreen(event) {
     const id = event.detail
 
-    mapOnMountBigScreen.delete(id)
-    mapOnMountBigScreenReverse.delete(id)
+    mapListenersBigScreen.delete(id)
+    mapListenersBigScreenReverse.delete(id)
 }
 
 //
 
-function onMountSmallScreen(event) {
+function addListenerSmallScreen(event) {
     const { id, f } = event.detail
 
-    mapOnMountSmallScreen.set(id, f)
+    mapListenersSmallScreen.set(id, f)
 
     if (!window.matchMedia("(min-width: 65.001em)").matches)
         f()
 }
 
-function onMountSmallScreenReverse(event) {
+function addListenerSmallScreenReverse(event) {
     const { id, f } = event.detail
 
-    mapOnMountSmallScreenReverse.set(id, f)
+    mapListenersSmallScreenReverse.set(id, f)
 }
 
-function removeSmallScreenListener(event) {
+function removeListenerSmallScreen(event) {
     const id = event.detail
 
-    mapOnMountSmallScreen.delete(id)
+    mapListenersSmallScreen.delete(id)
 }
 
-function removeSmallScreenReverseListener(event) {
+function removeListenerSmallScreenReverse(event) {
     const id = event.detail
 
-    mapOnMountSmallScreenReverse.delete(id)
+    mapListenersSmallScreenReverse.delete(id)
 }
 
-function removeSmallScreenListeners(event) {
+function removeListenersSmallScreen(event) {
     const id = event.detail
 
-    mapOnMountSmallScreen.delete(id)
-    mapOnMountSmallScreenReverse.delete(id)
+    mapListenersSmallScreen.delete(id)
+    mapListenersSmallScreenReverse.delete(id)
 }
 
-function removeScreenListeners(event) {
+//
+
+function removeListenersScreen(event) {
     const id = event.detail
 
-    removeBigScreenListeners({ detail: id })
-    removeSmallScreenListeners({ detail: id })
+    removeListenersBigScreen({ detail: id })
+    removeListenersSmallScreen({ detail: id })
 }
 
 //
@@ -173,55 +175,55 @@ function setupHoverable() {
             }
         )
 
-    window.addEventListener(EVENT_ON_MOUNT_HOVERABLE, onMountHoverable)
-    window.addEventListener(EVENT_ON_MOUNT_HOVERABLE_REVERSE, onMountHoverableReverse)
-    window.addEventListener(EVENT_REMOVE_HOVERABLE_LISTENER, removeHoverableListener)
-    window.addEventListener(EVENT_REMOVE_HOVERABLE_REVERSE_LISTENER, removeHoverableReverseListener)
-    window.addEventListener(EVENT_REMOVE_HOVERABLE_LISTENERS, removeHoverableListeners)
+    window.addEventListener(EVENT_ADD_LISTENER_HOVERABLE, addListenerHoverable)
+    window.addEventListener(EVENT_ADD_LISTENER_HOVERABLE_REVERSE, onListenerHoverableReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENER_HOVERABLE, removeListenerHoverable)
+    window.addEventListener(EVENT_REMOVE_LISTENER_HOVERABLE_REVERSE, removeListenerHoverableReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENERS_HOVERABLE, removeListenersHoverable)
 }
 
 function onHoverable() {
-    for (const f of mapOnMountHoverable.values())
+    for (const f of mapListenersHoverable.values())
         f()
 }
 
 function onHoverableReverse() {
-    for (const f of mapOnMountHoverableReverse.values())
+    for (const f of mapListenersHoverableReverse.values())
         f()
 }
 
-function onMountHoverable(event) {
+function addListenerHoverable(event) {
     const { id, f } = event.detail
 
-    mapOnMountHoverable.set(id, f)
+    mapListenersHoverable.set(id, f)
 
     if (window.matchMedia("(hover: hover)").matches)
         f()
 }
 
-function onMountHoverableReverse(event) {
+function onListenerHoverableReverse(event) {
     const { id, f } = event.detail
 
-    mapOnMountHoverableReverse.set(id, f)
+    mapListenersHoverableReverse.set(id, f)
 }
 
-function removeHoverableListener(event) {
+function removeListenerHoverable(event) {
     const id = event.detail
 
-    mapOnMountHoverable.delete(id)
+    mapListenersHoverable.delete(id)
 }
 
-function removeHoverableReverseListener(event) {
+function removeListenerHoverableReverse(event) {
     const id = event.detail
 
-    mapOnMountHoverableReverse.delete(id)
+    mapListenersHoverableReverse.delete(id)
 }
 
-function removeHoverableListeners(event) {
+function removeListenersHoverable(event) {
     const id = event.detail
 
-    mapOnMountHoverable.delete(id)
-    mapOnMountHoverableReverse.delete(id)
+    mapListenersHoverable.delete(id)
+    mapListenersHoverableReverse.delete(id)
 }
 
 //
@@ -239,63 +241,65 @@ function setupTouchable() {
             }
         )
 
-    window.addEventListener(EVENT_ON_MOUNT_TOUCHABLE, onMountTouchable)
-    window.addEventListener(EVENT_ON_MOUNT_TOUCHABLE_REVERSE, onMountTouchableReverse)
-    window.addEventListener(EVENT_REMOVE_TOUCHABLE_LISTENER, removeTouchableListener)
-    window.addEventListener(EVENT_REMOVE_TOUCHABLE_REVERSE_LISTENER, removeTouchableReverseListener)
-    window.addEventListener(EVENT_REMOVE_TOUCHABLE_LISTENERS, removeTouchableListeners)
+    window.addEventListener(EVENT_ADD_LISTENER_TOUCHABLE, addListenerTouchable)
+    window.addEventListener(EVENT_ADD_LISTENER_TOUCHABLE_REVERSE, addListenerTouchableReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENER_TOUCHABLE, removeListenerTouchable)
+    window.addEventListener(EVENT_REMOVE_LISTENER_TOUCHABLE_REVERSE, removeListenerTouchableReverse)
+    window.addEventListener(EVENT_REMOVE_LISTENERS_TOUCHABLE, removeListenersTouchable)
 }
 
 function onTouchable() {
-    for (const f of mapOnMountTouchable.values())
+    for (const f of mapListenersTouchable.values())
         f()
 }
 
 function onTouchableReverse() {
-    for (const f of mapOnMountTouchableReverse.values())
+    for (const f of mapListenersTouchableReverse.values())
         f()
 }
 
-function onMountTouchable(event) {
+function addListenerTouchable(event) {
     const { id, f } = event.detail
 
-    mapOnMountTouchable.set(id, f)
+    mapListenersTouchable.set(id, f)
 
     if (window.matchMedia("((hover: none) and (pointer: fine)) or ((hover: none) and (pointer: coarse)) or ((hover: hover) and (pointer: coarse))").matches)
         f()
 }
 
-function onMountTouchableReverse(event) {
+function addListenerTouchableReverse(event) {
     const { id, f } = event.detail
 
-    mapOnMountTouchableReverse.set(id, f)
+    mapListenersTouchableReverse.set(id, f)
 }
 
-function removeTouchableListener(event) {
+function removeListenerTouchable(event) {
     const id = event.detail
 
-    mapOnMountTouchable.delete(id)
+    mapListenersTouchable.delete(id)
 }
 
-function removeTouchableReverseListener(event) {
+function removeListenerTouchableReverse(event) {
     const id = event.detail
 
-    mapOnMountTouchableReverse.delete(id)
+    mapListenersTouchableReverse.delete(id)
 }
 
-function removeTouchableListeners(event) {
+function removeListenersTouchable(event) {
     const id = event.detail
 
-    mapOnMountTouchable.delete(id)
-    mapOnMountTouchableReverse.delete(id)
+    mapListenersTouchable.delete(id)
+    mapListenersTouchableReverse.delete(id)
 }
 
-// TODO: review
+//
+
+// TODO: review, get from jacksons-car-detailing
 export function getMediaQueryForResponsiveImage(media) {
     return `(-webkit-min-device-pixel-ratio: ${media.density - 1 + 0.01}) and (-webkit-max-device-pixel-ratio: ${media.density}) and (min-width: ${media.minWidth / 16}em) and (max-width: ${media.maxWidth / 16}em)`
 }
 
-// TODO: update
+// TODO: review, get from jacksons-car-detailing
 export function getLinkForResponsiveImage(imageName, media, updatedAt, onceRatio = true) {
     let link = "/api/image" + "/" + imageName + "?density=" + media.density + "&width=" + media.photoWidth
 

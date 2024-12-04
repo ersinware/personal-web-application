@@ -16,8 +16,8 @@
         window.addEventListener(`${EVENT_NAVIGATED}${postfix}`, onNavigated)
 
         return () => {
-            window.addEventListener(`${EVENT_NAVIGATING}${postfix}`, onNavigating)
-            window.addEventListener(`${EVENT_NAVIGATED}${postfix}`, onNavigated)
+            window.removeEventListener(`${EVENT_NAVIGATING}${postfix}`, onNavigating)
+            window.removeEventListener(`${EVENT_NAVIGATED}${postfix}`, onNavigated)
         }
     })
 

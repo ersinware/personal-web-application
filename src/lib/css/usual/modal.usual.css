@@ -1,16 +1,16 @@
 body {
-    --p-v-modal: calc(var(--p-v) * 1.5);
-    --g-v-d-modal: var(--p-v);
+    --p-v-modal: calc(var(--p-v) * 1.25);
+    --g-v-d-modal: calc(var(--p-v) - .375rem);
 
     --max-h-modal: calc(var(--vh-actual) * .9);
 }
 
 .title-modal {
-    line-height: 2.25rem;
+    line-height: 2.75rem;
 
     color: var(--color-title);
 
-    font-size: 2rem;
+    font-size: 2.425rem;
     font-weight: 900;
 
     margin-top: .25rem;
@@ -23,18 +23,15 @@ body {
 
 .title-modal,
 .text-hint-modal {
-    text-align: center;
     margin-bottom: .25rem;
 }
 
 .text-modal {
     line-height: 1.25rem;
 
-    max-width: 20rem;
-
     color: var(--color-text);
 
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-align: justify;
 }
 
@@ -46,9 +43,8 @@ body {
     color: var(--color-text-unimportant);
 
     font-family: Montserrat, sans-serif;
-    font-size: .65rem;
+    font-size: .625rem;
     letter-spacing: .0875rem;
-    text-transform: uppercase;
     font-weight: 700;
 }
 
@@ -56,28 +52,41 @@ body {
     gap: var(--g-v-d-modal);
 }
 
+.wrapper-modal-inputs {
+    margin-top: .25rem;
+}
+
 .wrapper-modal-buttons {
     display: flex;
-    justify-content: center;
-    gap: calc(var(--gap-wrapper-modal-buttons));
+    justify-content: right;
+    gap: calc(var(--p-h) - .5rem);
 
     margin-top: calc(var(--p-v) / 4);
 }
 
 @media (min-width: 65.001em) {
     body {
-        --p-h-modal: calc(var(--p-h) * 1.5);
-        --gap-wrapper-modal-buttons: 2rem;
+        --p-h-modal: calc(var(--p-h) * 1.25);
     }
 
-    .big-screen-w-content-modal-small {
-        width: 25rem;
+    .big-screen-w-modal {
+        width: 22.5rem;
+    }
+
+    .title-modal,
+    .text-modal,
+    .text-hint-modal {
+        width: 100%;
+        max-width: 19rem;
+    }
+
+    .wrapper-modal-inputs {
+        max-width: 20rem;
     }
 }
 
 @media (max-width: 65em) {
     body {
-        --p-h-modal: var(--p-h);
-        --gap-wrapper-modal-buttons: 1.5rem;
+        --p-h-modal: calc(var(--p-h) * 2);
     }
 }

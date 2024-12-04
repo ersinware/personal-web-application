@@ -1,8 +1,8 @@
 <script>
     import {
-        EVENT_ON_MOUNT_TOUCHABLE,
-        EVENT_ON_MOUNT_TOUCHABLE_REVERSE,
-        EVENT_REMOVE_TOUCHABLE_LISTENERS,
+        EVENT_ADD_LISTENER_TOUCHABLE,
+        EVENT_ADD_LISTENER_TOUCHABLE_REVERSE,
+        EVENT_REMOVE_LISTENERS_TOUCHABLE,
         EVENT_SLIDER_INDEX_CHANGED,
         EVENT_SLIDER_INSERT_ELEMENTS_FOR_INFINITY,
         EVENT_SLIDER_LOADED,
@@ -35,6 +35,7 @@
 
     onMount(async () => {
         await yieldToMain()
+
         calculate()
 
         if (slider.children.length === 1)
@@ -51,6 +52,23 @@
         removeListeners()
     })
 
+    function calculate() {
+        slider = document.getElementById(id)
+
+        if (slider.children.length === 1)
+            return
+
+        activeIndex = infinite ? 1 : 0
+
+        window.dispatchEvent(new CustomEvent(EVENT_SLIDER_LOADED + eventPostfix, { detail: { activeIndex } }))
+
+        if (infinite)
+            window.dispatchEvent(new CustomEvent(EVENT_SLIDER_INSERT_ELEMENTS_FOR_INFINITY + eventPostfix))
+
+        scrollImmediately()
+        currentScroll.subscribe(onScroll)
+    }
+
     function addEventListeners() {
         window.addEventListener('resize', onResize)
 
@@ -60,11 +78,11 @@
     }
 
     function addTouchListeners() {
-        const wrapper = document.getElementById(id + '-wrapper')
+        const wrapper = document.getElementById(`wrapper-${id}`)
 
         window.dispatchEvent(
             new CustomEvent(
-                EVENT_ON_MOUNT_TOUCHABLE,
+                EVENT_ADD_LISTENER_TOUCHABLE,
                 {
                     detail: {
                         id,
@@ -81,7 +99,7 @@
 
         window.dispatchEvent(
             new CustomEvent(
-                EVENT_ON_MOUNT_TOUCHABLE_REVERSE,
+                EVENT_ADD_LISTENER_TOUCHABLE_REVERSE,
                 {
                     detail: {
                         id,
@@ -104,28 +122,11 @@
         window.removeEventListener(EVENT_SLIDER_NAVIGATION_TO_NEXT + eventPostfix, toPrev)
         window.removeEventListener(EVENT_SLIDER_SLIDE_TO_INDEX + eventPostfix, toIndex)
 
-        window.dispatchEvent(new CustomEvent(EVENT_REMOVE_TOUCHABLE_LISTENERS, { detail: id }))
+        window.dispatchEvent(new CustomEvent(EVENT_REMOVE_LISTENERS_TOUCHABLE, { detail: id }))
     }
 
     function onResize() {
         scrollImmediately()
-    }
-
-    function calculate() {
-        slider = document.getElementById(id)
-
-        if (slider.children.length === 1)
-            return
-
-        activeIndex = infinite ? 1 : 0
-
-        window.dispatchEvent(new CustomEvent(EVENT_SLIDER_LOADED + eventPostfix, { detail: { activeIndex } }))
-
-        if (infinite)
-            window.dispatchEvent(new CustomEvent(EVENT_SLIDER_INSERT_ELEMENTS_FOR_INFINITY + eventPostfix))
-
-        scrollImmediately()
-        currentScroll.subscribe(onScroll)
     }
 
     function scrollImmediately(target) {
@@ -327,6 +328,6 @@
     }
 </script>
 
-<div id={id + '-wrapper'} class="d-contents">
+<div id={`wrapper-${id}`} class="d-contents">
     {@render children()}
 </div>

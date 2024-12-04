@@ -1,10 +1,10 @@
 <script>
     import {performRippleEffectAndWait} from "$lib/js/client/common/util.ripple.common.client.js";
     import {
-        EVENT_ON_MOUNT_BIG_SCREEN,
-        EVENT_ON_MOUNT_SMALL_SCREEN,
-        EVENT_REMOVE_BIG_SCREEN_LISTENER,
-        EVENT_REMOVE_SMALL_SCREEN_LISTENER,
+        EVENT_ADD_LISTENER_BIG_SCREEN,
+        EVENT_ADD_LISTENER_SMALL_SCREEN,
+        EVENT_REMOVE_LISTENER_BIG_SCREEN,
+        EVENT_REMOVE_LISTENER_SMALL_SCREEN,
         EVENT_SLIDER_INDEX_CHANGED,
         EVENT_SLIDER_NAVIGATION_TO_NEXT,
         EVENT_SLIDER_NAVIGATION_TO_PREV
@@ -34,15 +34,15 @@
 
         return () => {
             window.removeEventListener(EVENT_SLIDER_INDEX_CHANGED + eventPostfix, onIndexChange)
-            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_BIG_SCREEN_LISTENER, { detail: id }))
-            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_SMALL_SCREEN_LISTENER, { detail: id }))
+            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_LISTENER_BIG_SCREEN, { detail: id }))
+            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_LISTENER_SMALL_SCREEN, { detail: id }))
         }
     })
 
     function adjustTransition() {
         window.dispatchEvent(
             new CustomEvent(
-                EVENT_ON_MOUNT_SMALL_SCREEN,
+                EVENT_ADD_LISTENER_SMALL_SCREEN,
                 {
                     detail: {
                         id,
@@ -58,7 +58,7 @@
 
         window.dispatchEvent(
             new CustomEvent(
-                EVENT_ON_MOUNT_BIG_SCREEN,
+                EVENT_ADD_LISTENER_BIG_SCREEN,
                 {
                     detail: {
                         id,

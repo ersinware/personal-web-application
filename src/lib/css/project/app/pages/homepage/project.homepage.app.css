@@ -1,0 +1,13 @@
+.wrapper-texts-summary {
+    gap: .625rem;
+
+    padding: 1.75rem;
+}
+
+.title-text-summary {
+    letter-spacing: .005rem
+}
+
+.text-summary {
+    line-height: 1.175rem;
+}

@@ -10,13 +10,13 @@
 
     onMount(() => {
         document
-            .querySelectorAll('.wrapper-modal-menu a.wrapper-item.wrapper-item-page')
+            .querySelectorAll('.wrapper-modal-menu a.wrapper-item-page')
             .forEach(a => a.addEventListener(
                     'click',
                     async event => {
-                        const href = event.currentTarget.href
-
                         event.preventDefault()
+
+                        const href = event.currentTarget.href
 
                         await performRippleEffectAndWait(event)
 
@@ -30,12 +30,12 @@
             )
 
         document
-            .querySelectorAll('.wrapper-modal-menu a.wrapper-item:not(.wrapper-item-page)')
+            .querySelectorAll('.wrapper-modal-menu a.wrapper-contact-item')
             .forEach(a => a.addEventListener('click', onLinkClickOnNewTab))
     })
 </script>
 
-<article class="wrapper-modal-menu grid g-1dot75 big-screen-w-content-modal-small">
+<article class="wrapper-modal-menu p-r z-index-2 grid g-1dot75">
     <p class="text-hint-3 color-text-unimportant f-w-700">OTHER PAGES</p>
 
     <a href="/"
@@ -68,27 +68,12 @@
         <p class="text text-2 color-text-second l-h-1 f-w-500">Technical Skills</p>
     </a>
 
-    <a href="/personal-library"
-       class="wrapper-item-page wrapper-item flex a-i-c g-1"
-       aria-label="Personal Library">
-
-        <svg class="icon icon-personal-library b-box"
-             class:icon-active="{$page.url.pathname === '/personal-library'}"
-             xmlns="http://www.w3.org/2000/svg"
-             viewBox="0.01 0 512.06 512">
-
-            <path d="M248 0h16c13.3 0 24 10.7 24 24v10.7c80.4 13.4 143.9 76.9 157.3 157.3h2.7c17.7 0 32 14.3 32 32s-14.3 32-32 32H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h2.7C80.1 111.6 143.6 48.1 224 34.7V24c0-13.3 10.7-24 24-24zM64 288h64v128h40V288h64v128h48V288h64v128h40V288h64v132.3c.6.3 1.2.7 1.8 1.1l48 32c11.7 7.8 17 22.4 12.9 35.9S494.1 512 480 512H32c-14.1 0-26.5-9.2-30.6-22.7s1.1-28.1 12.9-35.9l48-32c.6-.4 1.2-.7 1.8-1.1L64 288z"></path>
-        </svg>
-
-        <p class="text text-2 color-text-second l-h-1 f-w-500">Personal Library</p>
-    </a>
-
     <div></div>
 
     <p class="text-hint-3 color-text-unimportant f-w-700">FOLLOW ME</p>
 
     <a href="https://instagram.com/ersinware"
-       class="wrapper-item flex a-i-c g-1"
+       class="wrapper-contact-item wrapper-item flex a-i-c g-1"
        aria-label="Instagram Profile of Ersin Karaer">
 
         <svg class="icon-instagram icon b-box"
@@ -98,11 +83,11 @@
             <path d="M21.58 7C13.541 7 7 13.545 7 21.586v20.832C7 50.458 13.545 57 21.586 57h20.832C50.458 57 57 50.455 57 42.414V21.58C57 13.541 50.455 7 42.414 7H21.58zM47 15a2 2 0 1 1-.001 4.001A2 2 0 0 1 47 15zm-15 4c7.17 0 13 5.83 13 13s-5.831 13-13 13c-7.17 0-13-5.831-13-13s5.83-13 13-13zm0 4a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path>
         </svg>
 
-        <p class="text text-2 color-text-second l-h-1 f-w-500">Instagram</p>
+        <p class="text text-2 text-link l-h-1 f-w-500">ersinware</p>
     </a>
 
     <a href="https://linkedin.com/in/ersinware"
-       class="wrapper-item flex a-i-c g-1"
+       class="wrapper-contact-item wrapper-item flex a-i-c g-1"
        aria-label="LinkedIn Profile of Ersin Karaer">
 
         <svg class="icon-linked-in icon b-box"
@@ -112,11 +97,11 @@
             <path d="M41 4H9C6.24 4 4 6.24 4 9v32c0 2.76 2.24 5 5 5h32c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5zM17 20v19h-6V20h6zm-6-5.53c0-1.4 1.2-2.47 3-2.47s2.93 1.07 3 2.47c0 1.4-1.12 2.53-3 2.53-1.8 0-3-1.13-3-2.53zM39 39h-6V29c0-2-1-4-3.5-4.04h-.08C27 24.96 26 27.02 26 29v10h-6V20h6v2.56S27.93 20 31.81 20c3.97 0 7.19 2.73 7.19 8.26V39z"></path>
         </svg>
 
-        <p class="text text-2 color-text-second l-h-1 f-w-500">LinkedIn</p>
+        <p class="text text-2 text-link l-h-1 f-w-500">ersinware</p>
     </a>
 
     <a href="https://github.com/ersinware"
-       class="wrapper-item flex a-i-c g-1"
+       class="wrapper-contact-item wrapper-item flex a-i-c g-1"
        aria-label="GitHub Profile of Ersin Karaer">
 
         <svg class="icon-github icon b-box"
@@ -127,9 +112,13 @@
             <path d="M-191.5 424.5c-5.5 5.7-7.4 12.9-7.7 19.3 0 9.6 2.8 17.3 7.7 22.3 6.8 6.9 16.1 6.7 22.6-.3 9.8-10.6 9.7-30.5 0-41-6.5-7.1-16-7.2-22.6-.3zM-99.4 423.7c-11.2 10.3-11.2 33 0 43.2 6.5 5.9 15.3 5.6 21.4-.7 5.6-5.8 7.6-13.1 7.8-21-.2-7.9-2.2-15.1-7.9-20.9-6.1-6.3-14.9-6.5-21.3-.6z"></path>
         </svg>
 
-        <p class="text-github text text-2 color-text-second l-h-1 f-w-500">GitHub</p>
+        <p class="text-github text text-2 text-link l-h-1 f-w-500">ersinware</p>
     </a>
 </article>
+
+<img class="image-flower p-a"
+     src="/images/flowers.svg"
+     alt="Flowers | Ersin Karaer, Software Engineer & Web Application Developer"/>
 
 <style>
     .wrapper-modal-menu {
@@ -157,10 +146,6 @@
         height: .75rem;
     }
 
-    .icon-personal-library {
-        padding: .0325rem;
-    }
-
     .icon-instagram {
         padding: .075rem;
     }
@@ -178,6 +163,15 @@
         margin-top: -.15rem;
     }
 
+    .image-flower {
+        right: var(--p-h);
+        bottom: -.075rem;
+
+        width: 15rem;
+
+        aspect-ratio: 490/604.34;
+    }
+
     @media (hover: hover) {
         .icon {
             transition: fill .25s ease-in-out;
@@ -187,7 +181,7 @@
             fill: var(--color-link-darker);
         }
 
-        .wrapper-item:hover .icon-active {
+        .wrapper-item-page:hover .icon-active {
             fill: var(--color-accent-darker);
         }
     }

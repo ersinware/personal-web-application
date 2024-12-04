@@ -10,7 +10,7 @@
     #lamp {
         cursor: default;
 
-        background: rgba(0, 0, 0, 0.5) !important;
+        background: rgba(0, 0, 0, 0.5);
 
         opacity: 0;
 

@@ -1,14 +1,13 @@
 import {
+    EVENT_ADD_LISTENER_BIG_SCREEN,
     EVENT_CLOSE_ALL_MODALS,
     EVENT_CLOSE_LAMP,
     EVENT_CLOSE_LAST_MODAL,
-    EVENT_ON_MOUNT_BIG_SCREEN,
     EVENT_OPEN_LAMP,
     EVENT_OPEN_MODAL
 } from "$lib/js/client/common/event.common.client.js";
 
-let openModals,
-    locked
+let openModals
 
 export function init(_openModals) {
     openModals = _openModals
@@ -19,7 +18,7 @@ export function init(_openModals) {
 
     window.dispatchEvent(
         new CustomEvent(
-            EVENT_ON_MOUNT_BIG_SCREEN,
+            EVENT_ADD_LISTENER_BIG_SCREEN,
             {
                 detail: {
                     id: 'util.modal.common.client',
@@ -37,6 +36,10 @@ export function init(_openModals) {
         })
 }
 
+export function anyOpenModal() {
+    return openModals.value.length
+}
+
 function openModal(event) {
     const modal = event.detail
 
@@ -49,9 +52,6 @@ function openModal(event) {
 }
 
 function closeLastModal() {
-    if (locked)
-        return
-
     --openModals.value.length
 
     if (!anyOpenModal())
@@ -59,26 +59,11 @@ function closeLastModal() {
 }
 
 function closeAllModals() {
-    if (locked)
-        return
-
     openModals.value.length = 0
-    window.dispatchEvent(new CustomEvent(EVENT_OPEN_MODAL))
+    window.dispatchEvent(new CustomEvent(EVENT_OPEN_LAMP))
 }
 
 function onBigScreen() {
     if (anyOpenModal() && openModals.value[openModals.value.length - 1]?.bottomBarModal)
         closeLastModal()
-}
-
-function lockModal() {
-    locked = true
-}
-
-function releaseModal() {
-    locked = false
-}
-
-export function anyOpenModal() {
-    return openModals.value.length
 }

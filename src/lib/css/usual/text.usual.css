@@ -12,7 +12,7 @@
 
 .h-1 {
     line-height: 3rem;
-    font-size: 2.5rem;
+    font-size: 2.575rem;
 }
 
 .h-2 {
@@ -36,7 +36,11 @@
 .text-4,
 .text-5,
 .text-6,
-.text-7 {
+.text-7,
+.big-screen-text-2,
+.big-screen-text-4,
+.small-screen-text-1,
+.small-screen-text-2 {
     font-family: Poppins, sans-serif;
     color: var(--color-text);
 }
@@ -100,6 +104,26 @@
 
     font-size: .6rem;
     letter-spacing: .075rem;
+}
+
+@media (min-width: 65.001em) {
+    .big-screen-text-2 {
+        font-size: .75rem;
+    }
+
+    .big-screen-text-4 {
+        font-size: .7125rem;
+    }
+}
+
+@media (max-width: 65.001em) {
+    .small-screen-text-1 {
+        font-size: .775rem;
+    }
+
+    .small-screen-text-2 {
+        font-size: .75rem;
+    }
 }
 
 @media (hover: hover) {

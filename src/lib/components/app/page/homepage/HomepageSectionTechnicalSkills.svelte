@@ -5,13 +5,13 @@
     import LazyImage from "$lib/components/common/LazyImage.svelte";
 </script>
 
-<section
-        class="b-box flex j-c-c a-i-c g-v-d w-full p-v-d-page p-r-d color-background-second big-screen-p-l-for-left-menu small-screen-f-column-reverse small-screen-p-l-d">
+<section id="wrapper-homepage-section-technical-skills"
+         class="b-box flex j-c-c a-i-c g-v-d w-full p-v-d-page p-r-d color-background-second big-screen-p-l-for-left-menu small-screen-f-column-reverse small-screen-p-l-d">
 
-    <div class="max-w-wrapper-section-texts">
+    <div class="wrapper-texts max-w-small-wrapper-section-texts">
         <div class="grid g-dot75">
             <a href="/technical-skills"
-               class="text-hint-3 w-max-content text-link f-w-700"
+               class="text-hint-3 text-link w-max-content f-w-700"
                onclick={onLinkClick}>
 
                 EXPLORE ALL
@@ -29,47 +29,43 @@
             <div class="flex g-2dot5">
                 <LazyImage
                         classes="icon-section-homepage-technical-skills"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                        src="/images/technical-skills/javascript.svg"
                         alt="Technical Skill, Javascript | Ersin Karaer, Software Engineer & Web Application Developer"/>
 
                 <LazyImage
-                        id="icon-node-js-section-homepage-technical-skills"
-                        classes="icon-section-homepage-technical-skills"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                        classes="icon-node-js-section-homepage-technical-skills icon-section-homepage-technical-skills"
+                        src="/images/technical-skills/node-js.svg"
                         alt="Technical Skill, Node.js | Ersin Karaer, Software Engineer & Web Application Developer"/>
 
                 <LazyImage
-                        classes="icon-section-homepage-technical-skills"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg"
+                        classes="icon-svelte-section-homepage-technical-skills icon-section-homepage-technical-skills"
+                        src="/images/technical-skills/svelte.svg"
                         alt="Technical Skill, SvelteKit | Ersin Karaer, Software Engineer & Web Application Developer"/>
             </div>
 
             <div class="flex g-2dot5">
                 <LazyImage
-                        id="icon-mongo-db-section-homepage-technical-skills"
-                        classes="icon-section-homepage-technical-skills"
-                        src="/icon-mongodb.svg"
+                        classes="icon-mongo-db-section-homepage-technical-skills icon-section-homepage-technical-skills"
+                        src="/images/technical-skills/mongodb.svg"
                         alt="Technical Skill, MongoDB | Ersin Karaer, Software Engineer & Web Application Developer"/>
 
                 <LazyImage
-                        id="icon-postgre-sql-section-homepage-technical-skills"
-                        classes="icon-section-homepage-technical-skills"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                        classes="icon-postgre-sql-section-homepage-technical-skills icon-section-homepage-technical-skills"
+                        src="/images/technical-skills/postgresql.svg"
                         alt="Technical Skill, PostgreSQL | Ersin Karaer, Software Engineer & Web Application Developer"/>
             </div>
 
             <LazyImage
-                    id="icon-redis-section-homepage-technical-skills"
-                    classes="icon-section-homepage-technical-skills"
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg"
+                    classes="icon-redis-section-homepage-technical-skills icon-section-homepage-technical-skills"
+                    src="/images/technical-skills/redis.svg"
                     alt="Technical Skill, Redis | Ersin Karaer, Software Engineer & Web Application Developer"/>
         </div>
     </div>
 
-    <div class="image-section image-section-homepage-technical-skills w-100">
+    <div class="wrapper-image-section-homepage-technical-skills wrapper-image-section w-100">
         <LazyImage
-                classes="image-section image-section-homepage-technical-skills w-100"
-                src="/programming.svg"
+                classes="image-section-homepage-technical-skills image-section w-100"
+                src="/images/homepage/technical-skills.svg"
                 alt="Software Engineer | Ersin Karaer, Software Engineer & Web Application Developer"/>
     </div>
 </section>
@@ -77,5 +73,11 @@
 <style>
     .wrapper-icons {
         margin-top: 3.75rem;
+    }
+
+    @media (min-width: 65.001em) {
+        .wrapper-texts {
+            margin-bottom: calc(var(--p-v) * -1);
+        }
     }
 </style>

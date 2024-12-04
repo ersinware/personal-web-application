@@ -1,0 +1,34 @@
+@media (min-width: 65.001em) {
+    .wrapper-image-homepage-section-blog {
+        margin-block: .5rem;
+    }
+
+    .wrapper-image-homepage-section-blog,
+    .image-homepage-section-blog {
+        aspect-ratio: 697/723;
+    }
+
+    .image-homepage-section-blog {
+        transform: scale(1.025);
+    }
+
+    .wrapper-image-flower-homepage-section-blog {
+        top: -13.825rem;
+
+        width: 13.5rem;
+        max-width: 13.5rem;
+
+        right: 2rem;
+    }
+
+    .image-flower-homepage-section-blog {
+        aspect-ratio: 216/258.92;
+    }
+}
+
+@media (max-width: 65em) {
+    .wrapper-image-homepage-section-blog,
+    .image-homepage-section-blog {
+        aspect-ratio: 490/612.2;
+    }
+}

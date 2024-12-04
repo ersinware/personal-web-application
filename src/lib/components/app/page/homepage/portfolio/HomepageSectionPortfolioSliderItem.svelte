@@ -40,10 +40,9 @@
             {/if}
 
             <article class="wrapper-base-text-bottom p-none p-a color-background b-r-d">
-                <div class="wrapper-text-bottom grid color-background-third b-r-d">
-                    <p class="text-4 l-h-1-dot-25 t-a-j text-max-three-lines">
-                        {@html project.shortDescription}
-                    </p>
+                <div class="wrapper-texts-summary grid color-background-third b-r-d">
+                    <p class="title-text-summary text-2 l-h-1-dot-25 f-w-500">{project.name}</p>
+                    <p class="text-summary text-4 color-text-second text-max-two-lines t-a-j">{project.shortDescription}</p>
                 </div>
             </article>
         </div>
@@ -78,11 +77,7 @@
     }
 
     .wrapper-base-text-bottom {
-        max-width: min(calc(100% - var(--p-h) * 4), var(--max-w-phone));
-    }
-
-    .wrapper-text-bottom {
-        padding: 1.5rem;
+        max-width: min(calc(100% - var(--p-h) * 4), calc(var(--max-w-phone-with-padding-h) * 1.18));
     }
 
     @media (min-width: 65.001em) {

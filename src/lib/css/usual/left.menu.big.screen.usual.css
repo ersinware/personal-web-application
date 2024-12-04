@@ -3,7 +3,7 @@
         --left-wrapper-base-left-menu: max(5vw, var(--p-h));
 
         --width-icon-left-menu: 1.25rem;
-        --p-v-icon-left-menu: .75rem;
+        --p-v-icon-left-menu: .775rem;
         --p-h-icon-left-menu: .775rem;
 
         --width-left-menu: calc(var(--width-icon-left-menu) + var(--p-h-icon-left-menu) * 2);
@@ -11,7 +11,7 @@
         --p-l-for-left-menu: calc(var(--left-wrapper-base-left-menu) + var(--width-left-menu) + var(--p-h));
     }
 
-    #wrapper-left-menu {
+    .wrapper-left-menu {
         left: var(--left-wrapper-base-left-menu);
 
         /* for shadow */
@@ -21,17 +21,17 @@
         width: 15rem;
     }
 
-    #left-menu {
+    .left-menu {
         width: var(--width-left-menu);
     }
 
-    #wrapper-page-items-left-menu {
+    .wrapper-items-page-left-menu {
         padding-block: calc(var(--p-v-icon-left-menu) * 1.75);
 
         backdrop-filter: blur(.5rem);
     }
 
-    .wrapper-page-item-left-menu {
+    .wrapper-item-page-left-menu {
         display: block;
 
         padding-block: var(--p-v-icon-left-menu);
@@ -61,11 +61,11 @@
     }
 
     @media (hover: hover) {
-        .wrapper-page-item-left-menu:hover .icon-page-left-menu {
+        .wrapper-item-page-left-menu:hover .icon-page-left-menu {
             fill: var(--color-link-darker)
         }
 
-        .wrapper-page-item-left-menu:hover .icon-page-left-menu-active {
+        .wrapper-item-page-left-menu:hover .icon-page-left-menu-active {
             fill: var(--color-accent-darker)
         }
     }

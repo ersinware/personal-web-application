@@ -1,3 +1,19 @@
-.max-w-wrapper-section-texts {
+body {
+    --max-w-phone-with-padding-h: calc(var(--max-w-phone) - var(--p-h) * 2);
+}
+
+.max-w-small-wrapper-section-texts {
     max-width: var(--max-w-phone-with-padding-h);
+}
+
+@media (min-width: 65.001em) {
+    .max-w-wrapper-section-texts {
+        max-width: var(--max-w-phone);
+    }
+}
+
+@media (max-width: 65em) {
+    .max-w-wrapper-section-texts {
+        max-width: var(--max-w-phone-with-padding-h);
+    }
 }

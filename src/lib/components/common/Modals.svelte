@@ -4,7 +4,7 @@
     import {getGlobalState} from "$lib/js/client/common/util.global.state.common.client.svelte.js";
     import {DURATION_TRANSITION_MODAL} from "$lib/js/client/common/constant.transition.common.client.js";
     import {onMount} from "svelte";
-    import {EVENT_ON_MOUNT_BIG_SCREEN, EVENT_ON_MOUNT_SMALL_SCREEN} from "$lib/js/client/common/event.common.client.js";
+    import {EVENT_ADD_LISTENER_BIG_SCREEN, EVENT_ADD_LISTENER_SMALL_SCREEN} from "$lib/js/client/common/event.common.client.js";
 
     const openModals = getGlobalState('openModals'),
         lastModal = $derived(openModals.value[openModals.value.length - 1])
@@ -14,7 +14,7 @@
     onMount(() => {
             window.dispatchEvent(
                 new CustomEvent(
-                    EVENT_ON_MOUNT_BIG_SCREEN,
+                    EVENT_ADD_LISTENER_BIG_SCREEN,
                     {
                         detail: {
                             id: 'modals',
@@ -28,7 +28,7 @@
 
             window.dispatchEvent(
                 new CustomEvent(
-                    EVENT_ON_MOUNT_SMALL_SCREEN,
+                    EVENT_ADD_LISTENER_SMALL_SCREEN,
                     {
                         detail: {
                             id: 'modals',
@@ -44,7 +44,7 @@
 </script>
 
 {#if lastModal}
-    <div class="wrapper-base p-f z-index-5 small-screen-w-100 small-screen-max-w-phone"
+    <div class="wrapper-base b-box p-f z-index-5 small-screen-w-100 small-screen-max-w-phone"
          transition:fly={{
                     y: TRANSITION_MODAL_Y,
                     duration: DURATION_TRANSITION_MODAL,

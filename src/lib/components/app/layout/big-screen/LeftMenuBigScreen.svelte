@@ -3,22 +3,22 @@
     import Tooltip from "$lib/components/common/Tooltip.svelte";
     import {onLinkClick, onLinkClickOnNewTab} from "$lib/js/client/common/util.common.client.js";
     import {onMount} from "svelte";
-    import {EVENT_ON_MOUNT_BIG_SCREEN} from "$lib/js/client/common/event.common.client.js";
+    import {EVENT_ADD_LISTENER_BIG_SCREEN} from "$lib/js/client/common/event.common.client.js";
 
     onMount(() => {
             window.dispatchEvent(
                 new CustomEvent(
-                    EVENT_ON_MOUNT_BIG_SCREEN,
+                    EVENT_ADD_LISTENER_BIG_SCREEN,
                     {
                         detail: {
                             id: 'left-menu-big-screen',
                             f: () => {
                                 document
-                                    .querySelectorAll('#left-menu a.wrapper-page-item-left-menu')
+                                    .querySelectorAll('.left-menu a.wrapper-item-page-left-menu')
                                     .forEach(a => a.addEventListener('click', onLinkClick))
 
                                 document
-                                    .querySelectorAll('#left-menu a.wrapper-contact-item')
+                                    .querySelectorAll('.left-menu a.wrapper-contact-item')
                                     .forEach(a => a.addEventListener('click', onLinkClickOnNewTab))
                             }
                         }
@@ -29,18 +29,16 @@
     )
 </script>
 
-<div id="wrapper-left-menu"
-     class="for-big-screen p-none b-box p-f t-0 z-index-3 grid h-100vh p-v-d o-y-scroll">
-
-    <aside id="left-menu" class="p-none-revert flex f-column j-c-s-b g-v-d">
+<div class="for-big-screen wrapper-left-menu p-none b-box p-f t-0 z-index-3 grid h-100vh p-v-d o-y-scroll">
+    <aside class="left-menu p-none-revert flex f-column j-c-s-b g-v-d">
         <div></div>
 
-        <article id="wrapper-page-items-left-menu" class="color-background-second b-r-d">
+        <article class="wrapper-items-page-left-menu color-background-second b-r-d">
             <Tooltip content="Homepage"
                      left>
 
                 <a href="/"
-                   class="wrapper-page-item-left-menu"
+                   class="wrapper-item-page-left-menu"
                    aria-label="Homepage">
 
                     <svg class="icon-page-left-menu"
@@ -58,7 +56,7 @@
                      left>
 
                 <a href="/technical-skills"
-                   class="wrapper-page-item-left-menu"
+                   class="wrapper-item-page-left-menu"
                    aria-label="Technical Skills">
 
                     <svg class="icon-page-left-menu"
@@ -75,11 +73,10 @@
                      left>
 
                 <a href="/portfolio"
-                   class="wrapper-page-item-left-menu b-box"
+                   class="wrapper-item-page-left-menu b-box"
                    aria-label="Portfolio">
 
-                    <svg id="icon-page-portfolio-left-menu-big-screen"
-                         class="icon-page-left-menu b-box"
+                    <svg class="icon-page-portfolio icon-page-left-menu b-box"
                          class:icon-page-left-menu-active={$page.url.pathname === '/portfolio'}
                          xmlns="http://www.w3.org/2000/svg"
                          viewBox="-0.06 0.02 512.03 512.04">
@@ -93,7 +90,7 @@
                      left>
 
                 <a href="/blog"
-                   class="wrapper-page-item-left-menu"
+                   class="wrapper-item-page-left-menu"
                    aria-label="Blog">
 
                     <svg class="icon-page-blog icon-page-left-menu"
@@ -106,29 +103,11 @@
                 </a>
             </Tooltip>
 
-            <Tooltip content="Personal Library"
-                     --white-space-tooltip="nowrap"
-                     left>
-
-                <a href="/personal-library"
-                   class="wrapper-page-item-left-menu"
-                   aria-label="Personal Library">
-
-                    <svg class="icon-page-personal-library icon-page-left-menu b-box"
-                         class:icon-page-left-menu-active={$page.url.pathname === '/personal-library'}
-                         xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0.01 0 512.06 512">
-
-                        <path d="M248 0h16c13.3 0 24 10.7 24 24v10.7c80.4 13.4 143.9 76.9 157.3 157.3h2.7c17.7 0 32 14.3 32 32s-14.3 32-32 32H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h2.7C80.1 111.6 143.6 48.1 224 34.7V24c0-13.3 10.7-24 24-24zM64 288h64v128h40V288h64v128h48V288h64v128h40V288h64v132.3c.6.3 1.2.7 1.8 1.1l48 32c11.7 7.8 17 22.4 12.9 35.9S494.1 512 480 512H32c-14.1 0-26.5-9.2-30.6-22.7s1.1-28.1 12.9-35.9l48-32c.6-.4 1.2-.7 1.8-1.1L64 288z"></path>
-                    </svg>
-                </a>
-            </Tooltip>
-
             <Tooltip content="Contact"
                      left>
 
                 <a href="/contact"
-                   class="wrapper-page-item-left-menu"
+                   class="wrapper-item-page-left-menu"
                    aria-label="Contact">
 
                     <svg class="icon-page-contact icon-page-left-menu b-box"
@@ -142,7 +121,7 @@
             </Tooltip>
         </article>
 
-        <article class="wrapper-contact-items grid j-i-c g-1dot25">
+        <article class="wrapper-items-contact grid j-i-c g-1dot25">
             <a href="https://instagram.com/ersinware"
                class="wrapper-contact-item"
                aria-label="Instagram Profile of Ersin Karaer">
@@ -156,7 +135,7 @@
             </a>
 
             <a href="https://linkedin.com/in/ersinware"
-               class="wrapper-contact-item"
+               class="wrapper-item-contact"
                aria-label="LinkedIn Profile of Ersin Karaer">
 
                 <svg class="icon-contact-linked-in icon-contact"
@@ -185,7 +164,7 @@
 
 <style>
     @media (min-width: 65.001em) {
-        #icon-page-portfolio-left-menu-big-screen {
+        .icon-page-portfolio {
             padding-right: .05rem;
             margin-left: -.04rem;
         }
@@ -198,18 +177,13 @@
             margin-left: .125rem;
         }
 
-        .icon-page-personal-library {
-            padding: .045rem;
-            margin-left: -.05rem;
-        }
-
         .icon-page-contact {
-            padding: .1rem;
-            margin-bottom: -.075rem;
+            padding: .0875rem;
+            margin-bottom: -.1rem;
             margin-left: -.05rem;
         }
 
-        .wrapper-contact-items {
+        .wrapper-items-contact {
             --left-tooltip: 1.25rem;
             --white-space-tooltip: nowrap;
         }

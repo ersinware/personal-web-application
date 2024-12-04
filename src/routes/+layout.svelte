@@ -39,10 +39,11 @@
     import {init as initUtil} from "$lib/js/client/common/util.common.client.js";
     import {init as initUtilLamp} from "$lib/js/client/common/util.lamp.common.client.js";
     import {init as initUtilObservation} from "$lib/js/client/common/util.observation.common.client.js";
+    import {init as initUtilScreenLock, isScreenLocked} from "$lib/js/client/common/util.screen.lock.common.client.js";
 
     createGlobalStates()
 
-    const {children} = $props()
+    const { children } = $props()
 
     let firstTime = true
 
@@ -62,14 +63,20 @@
         initUtilResponsive()
         initUtilModal(getGlobalState('openModals'))
         initUtilObservation()
+        initUtilScreenLock()
     }
 
-    function _beforeNavigate({cancel, type}) {
-        if (type === 'popstate' && anyOpenModal()) {
-            cancel()
-            window.dispatchEvent(new CustomEvent(EVENT_CLOSE_LAST_MODAL))
+    function _beforeNavigate({ cancel, type }) {
+        if (type === 'popstate') {
+            if (isScreenLocked())
+                return
 
-            return
+            if (anyOpenModal()) {
+                cancel()
+                window.dispatchEvent(new CustomEvent(EVENT_CLOSE_LAST_MODAL))
+
+                return
+            }
         }
 
         if (type !== "leave")

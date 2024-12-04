@@ -2,7 +2,7 @@
     box-sizing: border-box;
     height: 1.905rem;
 
-    padding: .205rem 1.075rem .2rem;
+    padding: .19rem 1rem .2rem;
 
     color: var(--color-button);
     background-color: var(--color-accent);
@@ -32,7 +32,7 @@
     transition: color .25s ease-in-out;
 
     font-size: .7125rem;
-    letter-spacing: .1rem;
+    letter-spacing: .0875rem;
 }
 
 .button-nude.button-nude-positive {

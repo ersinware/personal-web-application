@@ -3,26 +3,26 @@ export async function getLatestProjects() {
         projects: [
             {
                 name: 'Personal Web Application',
-                shortDescription: `<strong>Personal Web Application Project</strong>, accusantium ad adipisci commodi consectetur dicta error est expedita hic ipsa minima molestiae mollitia obcaecati odit, placeat quae sequi, voluptas.`,
+                shortDescription: `Aperiam corporis cumque delectus doloremque, excepturi facilis illo molestias nulla obcaecati quo repudiandae sequi totam vitae. Ad dolorem ex placeat soluta totam.`,
                 link: 'ersinkaraer.com',
-                image: '/personal-web-application.webp'
+                image: '/images/project/personal-web-application.webp'
             },
             {
                 name: 'Digital Almanac',
-                shortDescription: `<strong>Digital Almanac Project</strong>, accusantium ad adipisci commodi consectetur dicta error est expedita hic ipsa minima molestiae mollitia obcaecati odit, placeat quae sequi, voluptas.`,
+                shortDescription: `Aperiam corporis cumque delectus doloremque, excepturi facilis illo molestias nulla obcaecati quo repudiandae sequi totam vitae. Ad dolorem ex placeat soluta totam.`,
                 link: 'almanak.adiyaman.edu.tr',
-                image: '/digital-almanac.webp'
+                image: '/images/project/digital-almanac.webp'
             },
             {
                 name: 'Personnel Tracking System',
-                shortDescription: `<strong>Personnel Tracking System</strong>, accusantium ad adipisci commodi consectetur dicta error est expedita hic ipsa minima molestiae mollitia obcaecati odit, placeat quae sequi, voluptas.`,
-                image: '/personnel-tracking-system.webp'
+                shortDescription: `Aperiam corporis cumque delectus doloremque, excepturi facilis illo molestias nulla obcaecati quo repudiandae sequi totam vitae. Ad dolorem ex placeat soluta totam.`,
+                image: '/images/project/personnel-tracking-system.webp'
             },
             {
                 name: 'Psychology Clinic',
-                shortDescription: `<strong>Psychology Clinic Project</strong>, accusantium ad adipisci commodi consectetur dicta error est expedita hic ipsa minima molestiae mollitia obcaecati odit, placeat quae sequi, voluptas.`,
+                shortDescription: `Aperiam corporis cumque delectus doloremque, excepturi facilis illo molestias nulla obcaecati quo repudiandae sequi totam vitae. Ad dolorem ex placeat soluta totam.`,
                 link: 'zeynepbasar.com.tr',
-                image: '/psychology-clinic.webp'
+                image: '/images/project/psychology-clinic.webp'
             }
         ]
     }

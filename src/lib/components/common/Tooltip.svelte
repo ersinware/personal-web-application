@@ -4,9 +4,9 @@
     import {fly} from "svelte/transition";
     import {getRandomID} from "$lib/js/common/util.common.js";
     import {
-        EVENT_ON_MOUNT_HOVERABLE,
-        EVENT_ON_MOUNT_HOVERABLE_REVERSE,
-        EVENT_REMOVE_HOVERABLE_LISTENERS
+        EVENT_ADD_LISTENER_HOVERABLE,
+        EVENT_ADD_LISTENER_HOVERABLE_REVERSE,
+        EVENT_REMOVE_LISTENERS_HOVERABLE
     } from "$lib/js/client/common/event.common.client.js";
 
     const {
@@ -19,11 +19,11 @@
     let show = $state(false)
 
     onMount(() => {
-        const wrapper = document.getElementById(`wrapper-tooltip_${id}`)
+        const wrapper = document.getElementById(`wrapper-tooltip-${id}`)
 
         window.dispatchEvent(
             new CustomEvent(
-                EVENT_ON_MOUNT_HOVERABLE,
+                EVENT_ADD_LISTENER_HOVERABLE,
                 {
                     detail: {
                         id,
@@ -38,7 +38,7 @@
 
         window.dispatchEvent(
             new CustomEvent(
-                EVENT_ON_MOUNT_HOVERABLE_REVERSE,
+                EVENT_ADD_LISTENER_HOVERABLE_REVERSE,
                 {
                     detail: {
                         id,
@@ -52,7 +52,7 @@
         )
 
         return () => {
-            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_HOVERABLE_LISTENERS, {detail: id}))
+            window.dispatchEvent(new CustomEvent(EVENT_REMOVE_LISTENERS_HOVERABLE, {detail: id}))
         }
     })
 
@@ -65,7 +65,7 @@
     }
 </script>
 
-<div id="wrapper-tooltip_{id}" class="wrapper p-r">
+<div id="wrapper-tooltip-{id}" class="wrapper p-r">
     {@render children()}
 
     {#if show}

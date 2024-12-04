@@ -100,6 +100,10 @@
     .big-screen-p-b-page {
         padding-bottom: var(--p-v-page);
     }
+
+    .big-screen-m-t-d {
+        margin-top: var(--p-v);
+    }
 }
 
 @media (max-width: 65em) {
@@ -107,11 +111,6 @@
         --p-v: 2rem;
         --p-h: 1.5rem;
         --p-v-page: calc(var(--p-v) * 3.5);
-    }
-
-    .small-screen-m-h-auto {
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .small-screen-p-b-page {
@@ -125,5 +124,14 @@
 
     .small-screen-p-l-d {
         padding-left: var(--p-h);
+    }
+
+    .small-screen-m-t-d {
+        margin-top: var(--p-v);
+    }
+
+    .small-screen-m-h-auto {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
